@@ -1,0 +1,9 @@
+# Xcode
+build/
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+.DS_Store
+
+# Secrets and Configuration
+scaena/Secrets.plist
