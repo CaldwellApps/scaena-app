@@ -142,18 +142,17 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--accent-mint), #00b894);
-            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px var(--accent-glow);
         }
 
-        .logo-icon svg {
-            fill: #ffffff !important;
+        .logo-icon img {
             width: 100%;
             height: 100%;
+            object-fit: contain;
+            border-radius: 22.5%;
+            box-shadow: 0 4px 15px var(--accent-glow);
         }
 
         .logo-text {
@@ -652,11 +651,6 @@
             .logo-icon {
                 width: 28px;
                 height: 28px;
-                border-radius: 8px;
-            }
-            .logo-icon svg {
-                width: 100%;
-                height: 100%;
             }
             .logo-text {
                 font-size: 17px;
@@ -678,12 +672,7 @@
         <div class="container nav-container">
             <a onclick="showTab('home')" class="logo" href="#">
                 <div class="logo-icon">
-                    <svg viewBox="0 0 30 30">
-                        <g transform="translate(3,3)" fill="#ffffff">
-                            <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7H18V9.5C18 10.3284 17.3284 11 16.5 11C17.3284 11 18 11.6716 18 12.5V15H6V12.5C6 11.6716 6.67157 11 7.5 11C6.67157 11 6 10.3284 6 9.5V7ZM9.8 10.3L11.2 11.7L14.2 8.7L15 9.5L11.2 13.3L9 11.1Z"/>
-                        </g>
-                    </svg>
+                    <img src="logo.png" alt="Scaena Logo">
                 </div>
                 <span class="logo-text">Scaena</span>
             </a>
