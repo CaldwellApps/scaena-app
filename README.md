@@ -50,5 +50,5 @@ We believe your watch history belongs to you. Scaena operates under a strict pri
 ## Support & Feedback
 
 We'd love to hear from you! If you have any questions, encounter a bug, or want to suggest a new feature:
-- **Email us**: [support@caldwellapps.com](mailto:support@caldwellapps.com)
+- **Email us**: [hello@caldwellappsco.com](mailto:hello@caldwellappsco.com)
 - **Visit the Help Desk**: [CaldwellApps Support & Documentation](https://CaldwellApps.github.io/scaena-app/)
