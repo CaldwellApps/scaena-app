@@ -26,6 +26,13 @@ Protect yourself from plot details before you watch. When enabled, Scaena:
 ### 🎨 Custom Layouts and Theming (Pro)
 Tailor Scaena to match your personal style. Scaena Pro unlocks premium visual themes (Light, Dark, Dark Grey, Dark Blue) and a custom accent color picker, along with customizable layout presets (Standard Cards and high-density Compact Cards).
 
+### 📱 Home Screen Widgets (Pro)
+Keep your watchlist progress and airing schedules right on your home screen. Scaena supports three customizable widgets in Small, Medium, and Large sizes:
+- **Watchlist**: Track next episode details and release statuses.
+- **Calendar**: View daily airing schedules and release times.
+- **Custom Lists**: Display items from your custom categories (e.g. Plan to Watch, On Hold).
+All widgets support premium glassmorphic styling and auto-refresh in real-time.
+
 ### 🔄 Multi-Device iCloud Sync
 Your watchlist and personal preferences are backed up automatically and synced securely across all your personal iOS and macOS devices using Apple iCloud.
 
@@ -51,4 +58,4 @@ We believe your watch history belongs to you. Scaena operates under a strict pri
 
 We'd love to hear from you! If you have any questions, encounter a bug, or want to suggest a new feature:
 - **Email us**: [hello@caldwellappsco.com](mailto:hello@caldwellappsco.com)
-- **Visit the Help Desk**: [CaldwellApps Support & Documentation](https://CaldwellApps.github.io/scaena-app/)
+- **Visit the Help Desk**: [CaldwellApps Support & Documentation](https://caldwellappsco.com)

@@ -142,17 +142,18 @@
         .logo-icon {
             width: 40px;
             height: 40px;
+            background: linear-gradient(135deg, var(--accent-mint), #00b894);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 15px var(--accent-glow);
         }
 
-        .logo-icon img {
+        .logo-icon svg {
+            fill: #ffffff !important;
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            border-radius: 22.5%;
-            box-shadow: 0 4px 15px var(--accent-glow);
         }
 
         .logo-text {
@@ -651,6 +652,11 @@
             .logo-icon {
                 width: 28px;
                 height: 28px;
+                border-radius: 8px;
+            }
+            .logo-icon svg {
+                width: 100%;
+                height: 100%;
             }
             .logo-text {
                 font-size: 17px;
@@ -672,7 +678,12 @@
         <div class="container nav-container">
             <a onclick="showTab('home')" class="logo" href="#">
                 <div class="logo-icon">
-                    <img src="logo.png" alt="Scaena Logo">
+                    <svg viewBox="0 0 30 30">
+                        <g transform="translate(3,3)" fill="#ffffff">
+                            <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7H18V9.5C18 10.3284 17.3284 11 16.5 11C17.3284 11 18 11.6716 18 12.5V15H6V12.5C6 11.6716 6.67157 11 7.5 11C6.67157 11 6 10.3284 6 9.5V7ZM9.8 10.3L11.2 11.7L14.2 8.7L15 9.5L11.2 13.3L9 11.1Z"/>
+                        </g>
+                    </svg>
                 </div>
                 <span class="logo-text">Scaena</span>
             </a>
@@ -751,6 +762,15 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">
+                        <!-- Grid / widget icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+                    </div>
+                    <h3>Home Screen Widgets <span class="pro-badge">✦ Pro</span></h3>
+                    <p>Add gorgeous glassmorphic widgets to your home screen. Access watchlist tracking, upcoming airing schedules, and custom category lists at a glance.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <!-- Shield / lock icon for Privacy -->
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
@@ -799,6 +819,11 @@
                                 </tr>
                                 <tr style="border-bottom: 1px solid rgba(43,54,68,0.5);">
                                     <td style="padding: 13px 16px; font-weight: 500;">Custom Layouts and Theming</td>
+                                    <td style="padding: 13px 16px; text-align: center; color: var(--text-muted); opacity: 0.4; font-size: 18px;">✕</td>
+                                    <td style="padding: 13px 16px; text-align: center; color: var(--accent-mint); font-size: 18px;">✓</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(43,54,68,0.5);">
+                                    <td style="padding: 13px 16px; font-weight: 500;">Home Screen Widgets</td>
                                     <td style="padding: 13px 16px; text-align: center; color: var(--text-muted); opacity: 0.4; font-size: 18px;">✕</td>
                                     <td style="padding: 13px 16px; text-align: center; color: var(--accent-mint); font-size: 18px;">✓</td>
                                 </tr>
@@ -913,7 +938,7 @@
         <div class="container">
             <div class="doc-card">
                 <h1>Privacy Policy</h1>
-                <div class="doc-meta">Last Updated: July 8, 2026</div>
+                <div class="doc-meta">Last Updated: July 13, 2026</div>
                 <div class="doc-divider"></div>
                 
                 <div class="doc-section">
@@ -960,7 +985,7 @@
         <div class="container">
             <div class="doc-card">
                 <h1>Terms of Service</h1>
-                <div class="doc-meta">Last Updated: July 8, 2026</div>
+                <div class="doc-meta">Last Updated: July 13, 2026</div>
                 <div class="doc-divider"></div>
                 
                 <div class="doc-section">
