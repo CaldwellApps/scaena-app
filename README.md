@@ -36,6 +36,9 @@ All widgets support premium glassmorphic styling and auto-refresh in real-time.
 ### 🔄 Multi-Device iCloud Sync
 Your watchlist and personal preferences are backed up automatically and synced securely across all your personal iOS and macOS devices using Apple iCloud.
 
+### 🌍 Multi-Language Localization
+Scaena is fully localized into 22 global languages: English, Spanish, Chinese (Simplified & Traditional), Japanese, French, German, Portuguese (Portugal & Brazil), Italian, Korean, Russian, Arabic, Dutch, Swedish, Norwegian, Danish, Hindi, Turkish, Indonesian, Vietnamese, and Polish. Setting your language in settings automatically localizes the user interface and retrieves corresponding media metadata.
+
 ---
 
 ## Getting Started
