@@ -9,6 +9,9 @@ Scaena (pronounced SEE-nuh) is a beautiful Swift app for iOS. Track your favorit
 ### 🔌 Seamless Simkl Integration (Pro)
 Scaena connects directly with your Simkl account to automatically import and synchronize your entire watch history, watchlist progress, and ratings. Linking your Simkl account enables real-time synchronization so your progress updates are preserved across all your devices and services.
 
+### 🔁 Simkl Rewatch Tracking (Pro)
+Track multiple rewatches for your favorite TV shows and movies without losing or overwriting your original watch history. Scaena manages isolated rewatch sessions, tracks rewatch progress per session, and syncs seamlessly with Simkl Pro & VIP accounts.
+
 ### 📺 Smart Watchlist Tracking
 Organize all your television series and movies in one unified list. Keep track of what season and episode you're currently on, rate your favorite media, and manage what to watch next.
 
