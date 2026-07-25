@@ -1,6 +1,6 @@
 # Scaena
 
-Scaena (pronounced SEE-nuh) is a beautiful Swift app for iOS. Track your favorite TV Shows and Movies and explore new ones.
+Scaena (pronounced SEE-nuh) is a modern Swift app for iOS. Track your favorite TV Shows and Movies and explore new ones.
 
 ---
 
