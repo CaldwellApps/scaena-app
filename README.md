@@ -1,6 +1,6 @@
 # Scaena
 
-Scaena (pronounced SEE-nuh) is a modern Swift app for iOS. Track your favorite TV Shows and Movies and explore new ones.
+Scaena (pronounced SEE-nuh) is a modern Swift app for iOS. Track your favorite TV Shows, Movies, and Anime and explore new ones.
 
 ---
 
@@ -13,10 +13,10 @@ Scaena connects directly with your Simkl account to automatically import and syn
 Track multiple rewatches for your favorite TV shows and movies without losing or overwriting your original watch history. Scaena manages isolated rewatch sessions, tracks rewatch progress per session, and syncs seamlessly with Simkl Pro & VIP accounts.
 
 ### 📺 Smart Watchlist Tracking
-Organize all your television series and movies in one unified list. Keep track of what season and episode you're currently on, rate your favorite media, and manage what to watch next.
+Organize all your television series, movies, and anime in one unified list. Keep track of what season and episode you're currently on, rate your favorite media, and manage what to watch next.
 
 ### 🧭 Explore & Discover Trending
-Find new favorites instantly. Browse live lists of trending TV shows and movies directly from Simkl, filterable by Today, This Week, or This Month.
+Find new favorites instantly. Browse live lists of trending TV shows, movies, and anime directly from Simkl, filterable by Today, This Week, or This Month.
 
 ### 📅 Release & Airing Calendars
 Never miss an episode release again. Scaena features an interactive calendar detailing release dates and exact air times for your tracked shows and upcoming movies, customized to your local timezone.
