@@ -21,8 +21,10 @@ Find new favorites instantly. Browse live lists of trending TV shows and movies 
 ### 📅 Release & Airing Calendars
 Never miss an episode release again. Scaena features an interactive calendar detailing release dates and exact air times for your tracked shows and upcoming movies, customized to your local timezone.
 
-### 🔔 Local Push Notifications
-Receive local push notifications for upcoming TV episode airings and movie release dates, with customizable alert times for TV Shows, Movies, and Anime.
+### 🔔 Flexible Push Notifications (Free & Pro)
+Never miss an episode release again:
+- **Free**: Choose between **Fixed Time** (set fixed daily notification times) or **Exact Air Date & Time** for TV Shows, Movies, and Anime categories in central settings.
+- **Pro**: Set **Custom Per-Title Notification Schedules** directly on any show, movie, or anime sheet with custom day offsets (-7 to +3 days) and specific alert times overriding central defaults.
 
 ### 🛡️ Native Spoiler Protection (Pro)
 Protect yourself from plot details before you watch. When enabled, Scaena:
