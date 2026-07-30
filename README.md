@@ -18,8 +18,10 @@ Organize all your television series, movies, and anime in unified lists. Keep tr
 ### 🧭 Explore & Discover Trending
 Find new favorites instantly. Browse live lists of trending TV shows and movies directly from Simkl, filterable by Today, This Week, or This Month.
 
-### 💡 Personalized Recommendations & Discovery
-Discover what to watch next tailored to your taste. Browse personalized show, movie, and anime recommendations directly powered by your Simkl watch history, along with top-rated and most-watched titles across all categories.
+### 💡 Recommendations & Discovery (Free & Pro)
+Discover what to watch next tailored to your taste:
+- **Free**: View global community recommendations and top-rated titles for any show, movie, or anime.
+- **Pro**: Connect your Simkl account to unlock personalized recommendations tailored specifically to your watch history and taste profile.
 
 ### 📅 Release & Airing Calendars
 Never miss an episode release again. Scaena features an interactive calendar detailing release dates and exact air times for your tracked shows and upcoming movies, customized to your local timezone.
