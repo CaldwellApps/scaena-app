@@ -31,8 +31,8 @@ Never miss an episode release again:
 - **Free**: Choose between **Fixed Time** (set fixed daily notification times) or **Exact Air Date & Time** for TV Shows, Movies, and Anime categories in central settings.
 - **Pro**: Set **Custom Per-Title Notification Schedules** directly on any show, movie, or anime sheet with custom day offsets (-7 to +3 days) and specific alert times overriding central defaults.
 
-### 🛡️ Native Spoiler Protection (Pro)
-Protect yourself from plot details before you watch. When enabled, Scaena:
+### 🛡️ Native Spoiler Protection
+Protect yourself from plot details before you watch. Included for all users on both Free and Pro tiers. When enabled, Scaena:
 - Replaces episode-specific thumbnails with season cover art.
 - Completely hides episode synopses behind an interactive reveal banner until you mark the episode as watched.
 
