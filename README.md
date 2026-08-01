@@ -54,6 +54,21 @@ Scaena is fully localized into 22 global languages: English, Spanish, Chinese (S
 
 ---
 
+## ✦ Scaena Pro Features
+
+Unlock the full power of Scaena with **Scaena Pro**:
+
+1. **Unlimited Watchlist Items**: Expand beyond the 20-item free tier limit to track your entire media library without restrictions.
+2. **Per-Title Custom Notification Schedules**: Set per-title alert times and custom day offsets (-7 to +3 days) for TV shows, movies, and anime.
+3. **Automatic Simkl Synchronization**: Instant, continuous synchronization of watch history, ratings, and rewatch progress across all devices.
+4. **Home Screen Widgets**: Access your Watchlist, Calendar, and Custom Lists directly from your iOS/macOS Home Screen.
+5. **HD Episode Backdrops**: Enjoy high-resolution widescreen TVDB episode graphics across calendar and detail views.
+6. **Custom Themes & Accent Colors**: Unlock premium color schemes (Neon, Dark Grey, Dark Blue, Arctic Night, Dark Cocoa, Plum) and custom accent color pickers.
+7. **Custom App Icons**: Personalize your home screen with custom System, Light, Dark, and accent app icons.
+8. **Detail Module Reordering**: Customize and drag to reorder detail sheet sections for TV show, movie, and anime detail views.
+
+---
+
 ## Getting Started
 
 1. **Download & Install**: Launch Scaena on your iPhone, iPad, or Mac.
