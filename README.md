@@ -21,7 +21,7 @@ Find new favorites instantly. Browse live lists of trending TV shows and movies 
 ### 💡 Recommendations & Discovery (Free & Pro)
 Discover what to watch next tailored to your taste:
 - **Free**: View global community recommendations and top-rated titles for any show, movie, or anime.
-- **Pro**: Connect your Simkl account to unlock personalized recommendations tailored specifically to your watch history and taste profile.
+- **Pro**: Connect your Simkl account (requires Simkl Pro/VIP subscription) to unlock personalized recommendations tailored specifically to your watch history and taste profile.
 
 ### 📅 Release & Airing Calendars
 Never miss an episode release again. Scaena features an interactive calendar detailing release dates and exact air times for your tracked shows and upcoming movies, customized to your local timezone.
