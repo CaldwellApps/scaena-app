@@ -288,6 +288,18 @@
             fill: #121816;
         }
 
+        .cta-btn svg.stroke-icon {
+            fill: none !important;
+            stroke: #121816 !important;
+        }
+
+        .cta-btn svg.stroke-icon path,
+        .cta-btn svg.stroke-icon polyline,
+        .cta-btn svg.stroke-icon rect {
+            fill: none !important;
+            stroke: #121816 !important;
+        }
+
         /* App Store Badge */
         .app-store-badge {
             display: inline-block;
@@ -489,7 +501,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            align-items: start;
+            align-items: stretch;
         }
 
         .support-info-card {
@@ -497,6 +509,10 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
         }
 
         .support-info-card h2 {
@@ -544,11 +560,15 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
         }
 
         .support-form h2 {
-            font-size: 24px;
-            margin-bottom: 8px;
+            font-size: 28px;
+            margin-bottom: 16px;
         }
 
         .support-form p {
@@ -998,8 +1018,10 @@
     <main id="tab-support" class="tab-section">
         <div class="container support-grid">
             <div class="support-info-card">
-                <h2>Scaena Support</h2>
-                <p>Have questions, ran into a sync issue, or want to suggest a feature? We are here to help you get the most out of your watchlists.</p>
+                <div>
+                    <h2>Scaena Support</h2>
+                    <p>Have questions, ran into a sync issue, or want to suggest a feature? We are here to help you get the most out of your watchlists.</p>
+                </div>
                 
                 <div class="support-contact-row">
                     <div class="support-contact-icon">
@@ -1009,18 +1031,20 @@
                     </div>
                     <div class="support-contact-text">
                         <h3>Submit an Issue</h3>
-                        <a href="https://github.com/caldwellapps/scaena-app/issues" target="_blank">caldwellapps/scaena-app/issues</a>
+                        <a href="https://github.com/caldwellapps/scaena-app/issues" target="_blank" rel="noopener">caldwellapps/scaena-app/issues</a>
                     </div>
                 </div>
             </div>
             
             <div class="support-form">
-                <h2>Email Support</h2>
-                <p>Have a question, feedback, or need help with your account? Reach out to our team directly via email.</p>
-                <a href="mailto:hello@caldwellappsco.com?subject=Scaena%20Support%20%26%20Feedback" class="cta-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-decoration: none; font-size: 15px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="20" height="16" x="2" y="4" rx="2"/>
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                <div>
+                    <h2>Email Support</h2>
+                    <p>Have a question, feedback, or need help with your account? Reach out to our team directly via email.</p>
+                </div>
+                <a href="mailto:hello@caldwellappsco.com?subject=Scaena%20Support%20%26%20Feedback" class="cta-btn" style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-decoration: none; font-size: 15px; min-height: 56px;">
+                    <svg class="stroke-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#121816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill: none !important; stroke: #121816 !important; flex-shrink: 0;">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
                     </svg>
                     Email hello@caldwellappsco.com
                 </a>
