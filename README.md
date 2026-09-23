@@ -1,6 +1,8 @@
 # Scaena
 
-Scaena (pronounced SEE-nuh) is a modern Swift app for iOS. Track your favorite TV Shows, Movies, and Anime and explore new ones.
+Scaena (pronounced SEE-nuh) is a modern Swift app for iOS and iPadOS. Track your favorite TV Shows, Movies, and Anime and explore new ones.
+
+> **Platform Note:** Scaena is designed and optimized specifically for iPhone and iPad. While iPad apps can run on Apple Silicon Macs, Scaena is not officially supported or optimized for macOS and does not work well on desktop environments. For the intended experience, please use Scaena on iOS or iPadOS.
 
 ---
 
@@ -47,7 +49,7 @@ Keep your watchlist progress and airing schedules right on your home screen. Sca
 All widgets support premium glassmorphic styling and auto-refresh in real-time.
 
 ### 🔄 Multi-Device iCloud Sync
-Your watchlist and personal preferences are backed up automatically and synced securely across all your personal iOS and macOS devices using Apple iCloud.
+Your watchlist and personal preferences are backed up automatically and synced securely across all your personal iOS and iPadOS devices using Apple iCloud.
 
 ### 🌍 Multi-Language Localization
 Scaena is fully localized into 22 global languages: English, Spanish, Chinese (Simplified & Traditional), Japanese, French, German, Portuguese (Portugal & Brazil), Italian, Korean, Russian, Arabic, Dutch, Swedish, Norwegian, Danish, Hindi, Turkish, Indonesian, Vietnamese, and Polish. Setting your language in settings automatically localizes the user interface and retrieves corresponding media metadata.
@@ -62,7 +64,7 @@ Unlock the full power of Scaena with **Scaena Pro**:
 2. **Per-Title Custom Notification Schedules**: Set per-title alert times and custom day offsets (-7 to +3 days) for TV shows, movies, and anime.
 3. **Automatic Simkl Synchronization**: Instant, continuous synchronization of watch history, ratings, and rewatch progress across all devices.
 4. **Simkl Rewatch Tracking**: Track multiple isolated rewatch sessions per title without losing or overwriting your original watch history.
-5. **Home Screen Widgets**: Access your Watchlist, Calendar, and Custom Lists directly from your iOS/macOS Home Screen.
+5. **Home Screen Widgets**: Access your Watchlist, Calendar, and Custom Lists directly from your iOS and iPadOS Home Screen.
 6. **HD Episode Backdrops**: Enjoy high-resolution widescreen TVDB episode graphics across calendar and detail views.
 7. **Custom Themes & Accent Colors**: Unlock premium color schemes (Neon, Dark Grey, Dark Blue, Arctic Night, Dark Cocoa, Plum) and custom accent color pickers.
 8. **Custom App Icons**: Personalize your home screen with custom System, Light, Dark, and accent app icons.
@@ -72,7 +74,7 @@ Unlock the full power of Scaena with **Scaena Pro**:
 
 ## Getting Started
 
-1. **Download & Install**: Launch Scaena on your iPhone, iPad, or Mac.
+1. **Download & Install**: Launch Scaena on your iPhone or iPad.
 2. **Connect Simkl**: Log in with your Simkl account in Settings to sync and load your watched history, movies, and TV shows.
 3. **Track & Customize**: Browse your watchlist, view upcoming episode calendars, or configure native spoiler warnings and themes.
 
