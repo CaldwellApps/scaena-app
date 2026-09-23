@@ -798,11 +798,13 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <!-- HD / Artwork icon -->
-                        <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3" /><path d="M3 18l5-5 5 5 5-5 5 5"/></svg>
+                        <!-- Custom Lists / Stack icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>
+                        </svg>
                     </div>
-                    <h3>HD Artwork &amp; Posters <span class="pro-badge">✦ Pro</span></h3>
-                    <p>Integrates directly with premium metadata services to load high-resolution posters and widescreen episode backdrops.</p>
+                    <h3>Custom Lists <span class="pro-badge">✦ Pro</span></h3>
+                    <p>Create, curate, and organize personal custom lists for movies, shows, and anime with iCloud sync (requires Scaena Pro). Connect your Simkl account to view your Simkl custom lists (Beta, read-only, requires Simkl Pro/VIP).</p>
                 </div>
 
                 <div class="feature-card">
@@ -860,6 +862,16 @@
                                     <td style="padding: 13px 16px; font-weight: 500;">Watchlist Items</td>
                                     <td style="padding: 13px 16px; text-align: center; color: var(--text-muted);"><span style="background: rgba(139,155,180,0.12); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Up to 20</span></td>
                                     <td style="padding: 13px 16px; text-align: center;"><span style="background: rgba(0,255,136,0.1); color: var(--accent-mint); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Unlimited</span></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(43,54,68,0.5);">
+                                    <td style="padding: 13px 16px; font-weight: 500;">Scaena Custom Lists</td>
+                                    <td style="padding: 13px 16px; text-align: center; color: var(--text-muted); opacity: 0.4; font-size: 18px;">✕</td>
+                                    <td style="padding: 13px 16px; text-align: center;"><span style="background: rgba(0,255,136,0.1); color: var(--accent-mint); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Create &amp; Sync via iCloud</span></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(43,54,68,0.5);">
+                                    <td style="padding: 13px 16px; font-weight: 500;">Simkl Custom Lists (Beta)</td>
+                                    <td style="padding: 13px 16px; text-align: center; color: var(--text-muted); opacity: 0.4; font-size: 18px;">✕</td>
+                                    <td style="padding: 13px 16px; text-align: center;"><span style="background: rgba(0,255,136,0.1); color: var(--accent-mint); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Read-Only (Simkl Pro/VIP)</span></td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid rgba(43,54,68,0.5);">
                                     <td style="padding: 13px 16px; font-weight: 500;">Simkl Sync</td>
@@ -989,6 +1001,11 @@
                 <div class="doc-section">
                     <h2>How does Rewatch Tracking work with Simkl?</h2>
                     <p>Scaena Pro allows you to log multiple rewatches for your favorite TV shows and movies without overwriting or losing your original watch history. You can track rewatch episode progress per session and sync seamlessly with Simkl Pro &amp; VIP accounts.</p>
+                </div>
+
+                <div class="doc-section">
+                    <h2>How do I upgrade from Simkl AUTH V1 to AUTH V2?</h2>
+                    <p>Navigate to Settings &rarr; Simkl Account inside Scaena. If your account is linked using legacy AUTH V1, you will see an "Upgrade to AUTH V2" option. Tap it to re-authenticate using the modern, secure OAuth with PKCE flow. Please note that Simkl plans to deprecate AUTH V1 around April 2027, so we recommend upgrading to ensure continuous sync and improved security.</p>
                 </div>
 
                 <div class="doc-section">

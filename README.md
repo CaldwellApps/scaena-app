@@ -8,11 +8,17 @@ Scaena (pronounced SEE-nuh) is a modern Swift app for iOS and iPadOS. Track your
 
 ## Key Features
 
-### 🔌 Seamless Simkl Integration (Pro)
-Scaena connects directly with your Simkl account to automatically import and synchronize your entire watch history, watchlist progress, and ratings. Linking your Simkl account enables real-time synchronization so your progress updates are preserved across all your devices and services.
+### 🔌 Seamless Simkl Integration & AUTH V2 (Pro)
+Scaena connects directly with your Simkl account using modern Simkl AUTH V2 (OAuth with PKCE) to automatically import and synchronize your entire watch history, watchlist progress, and ratings. Linking your Simkl account enables real-time synchronization so your progress updates are preserved across all your devices and services.
+> **Note:** Simkl plans to deprecate legacy AUTH V1 around April 2027. Scaena supports seamless in-app migration to AUTH V2 via Settings → Simkl Account.
 
 ### 🔁 Simkl Rewatch Tracking (Pro)
 Track multiple rewatches for your favorite TV shows, movies, and anime without losing or overwriting your original watch history. Scaena manages isolated rewatch sessions, tracks rewatch progress per session, and syncs seamlessly with Simkl Pro & VIP accounts.
+
+### 📑 Custom Lists (Scaena Pro & Simkl Beta)
+Organize your cinema and television experience your way with Custom Lists:
+- **Scaena Custom Lists (Pro)**: Create, curate, and reorder personal custom lists for any theme, marathon, or mood with seamless iCloud synchronization across your Apple devices.
+- **Simkl Custom Lists (Beta)**: View and browse your Simkl custom lists directly within Scaena (currently read-only; requires an active Simkl Pro or VIP subscription).
 
 ### 📺 Smart Watchlist Tracking
 Organize all your television series, movies, and anime in unified lists. Keep track of what season and episode you're currently on, rate your favorite media, and manage what to watch next.
@@ -60,15 +66,16 @@ Scaena is fully localized into 22 global languages: English, Spanish, Chinese (S
 
 Unlock the full power of Scaena with **Scaena Pro**:
 
-1. **Unlimited Watchlist Items**: Expand beyond the 20-item free tier limit to track your entire media library without restrictions.
-2. **Per-Title Custom Notification Schedules**: Set per-title alert times and custom day offsets (-7 to +3 days) for TV shows, movies, and anime.
-3. **Automatic Simkl Synchronization**: Instant, continuous synchronization of watch history, ratings, and rewatch progress across all devices.
-4. **Simkl Rewatch Tracking**: Track multiple isolated rewatch sessions per title without losing or overwriting your original watch history.
-5. **Home Screen Widgets**: Access your Watchlist, Calendar, and Custom Lists directly from your iOS and iPadOS Home Screen.
-6. **HD Episode Backdrops**: Enjoy high-resolution widescreen TVDB episode graphics across calendar and detail views.
-7. **Custom Themes & Accent Colors**: Unlock premium color schemes (Neon, Dark Grey, Dark Blue, Arctic Night, Dark Cocoa, Plum) and custom accent color pickers.
-8. **Custom App Icons**: Personalize your home screen with custom System, Light, Dark, and accent app icons.
-9. **Detail Module Reordering**: Customize and drag to reorder detail sheet sections for TV show, movie, and anime detail views.
+1. **Scaena Custom Lists**: Create, curate, and organize personal custom lists with iCloud backup and sync.
+2. **Unlimited Watchlist Items**: Expand beyond the 20-item free tier limit to track your entire media library without restrictions.
+3. **Per-Title Custom Notification Schedules**: Set per-title alert times and custom day offsets (-7 to +3 days) for TV shows, movies, and anime.
+4. **Automatic Simkl Synchronization**: Instant, continuous synchronization of watch history, ratings, and rewatch progress across all devices.
+5. **Simkl Rewatch Tracking**: Track multiple isolated rewatch sessions per title without losing or overwriting your original watch history.
+6. **Home Screen Widgets**: Access your Watchlist, Calendar, and Custom Lists directly from your iOS and iPadOS Home Screen.
+7. **HD Episode Backdrops**: Enjoy high-resolution widescreen TVDB episode graphics across calendar and detail views.
+8. **Custom Themes & Accent Colors**: Unlock premium color schemes (Neon, Dark Grey, Dark Blue, Arctic Night, Dark Cocoa, Plum) and custom accent color pickers.
+9. **Custom App Icons**: Personalize your home screen with custom System, Light, Dark, and accent app icons.
+10. **Detail Module Reordering**: Customize and drag to reorder detail sheet sections for TV show, movie, and anime detail views.
 
 ---
 
