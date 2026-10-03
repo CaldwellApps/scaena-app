@@ -1,0 +1,34 @@
+# Scaena
+
+> Scaena is a modern, privacy-focused media tracker for TV shows, movies, and anime on iOS and iPadOS.
+
+Scaena (pronounced "SEE-nuh") combines native Apple design aesthetics with Simkl synchronization, interactive spoiler prevention, airing schedules, and widgets.
+
+## Core Features
+- **Simkl 2-Way Synchronization (AUTH V2)**: Seamlessly syncs watchlists, ratings, and watch history using modern OAuth with PKCE.
+- **Rewatch Tracking**: Log and track isolated rewatch progress across multiple sessions per title without overwriting canonical watch history.
+- **Spoiler Prevention Controls**: Native spoiler shields blur episode descriptions and replace episode-specific thumbnails with general season art until watched.
+- **Release & Airing Calendars**: Real-time schedules customized to the user's local timezone, with per-title custom notification scheduling.
+- **Custom Lists**: Create, curate, and organize personal media lists synced via Apple iCloud, and browse Simkl custom lists (read-only, beta).
+- **Home Screen Widgets**: Small, medium, and large glassmorphic widgets for Watchlist progress, Calendar schedules, and Custom Lists.
+- **Localization**: Localized into 22 global languages.
+- **Privacy Architecture**: Operates on a local Core Data container and private Apple iCloud Key-Value store. No third-party tracking, analytics, or remote user data collection.
+
+## Platform Support
+- **Supported**: iOS 18.0+, iPadOS 18.0+
+- **macOS Note**: Not officially supported or optimized for macOS.
+
+## Pricing Tiers
+- **Free**: Core media tracking, up to 20 watchlist items, global recommendations, fixed-time release alerts, full spoiler protection.
+- **Scaena Pro**: Unlimited watchlist items, 2-way Simkl synchronization, Simkl rewatch tracking, Home Screen widgets, HD episode backdrops, custom themes & app icons, custom per-title notification schedules, custom lists iCloud sync.
+  - Subscriptions: $1.99/month, $12.99/year (7-day free trial).
+  - Lifetime: $34.99 one-time purchase.
+  - Supports Family Sharing.
+
+## Official Links
+- **Website**: https://caldwellappsco.com
+- **App Store**: https://apps.apple.com/us/app/scaena-tv-movie-tracker/id6787125515
+- **Support & Issues**: https://github.com/caldwellapps/scaena-app/issues
+- **Reddit Community**: https://www.reddit.com/r/ScaenaApp/
+- **Bluesky**: https://bsky.app/profile/scaenaapp.bsky.social
+- **Developer**: Caldwell Apps LLC (https://caldwellappsco.com)
