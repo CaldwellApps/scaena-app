@@ -497,114 +497,75 @@
         }
 
         /* Support Page */
-        .support-grid {
+        .support-channels-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            align-items: stretch;
-        }
-
-        .support-info-card {
-            background-color: var(--card-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .support-info-card h2 {
-            font-size: 28px;
-            margin-bottom: 16px;
-        }
-
-        .support-info-card p {
-            color: var(--text-muted);
-            margin-bottom: 24px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
         .support-contact-row {
             display: flex;
             align-items: center;
             gap: 16px;
-            padding: 16px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 12px;
             background-color: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s ease;
+        }
+
+        .support-contact-row:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 255, 136, 0.35);
+            background-color: rgba(0, 255, 136, 0.03);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.06);
         }
 
         .support-contact-icon {
             color: var(--accent-mint);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background-color: rgba(0, 255, 136, 0.06);
+            border: 1px solid rgba(0, 255, 136, 0.15);
+        }
+
+        .support-contact-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .support-contact-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
         }
 
         .support-contact-text h3 {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
+            color: var(--text-primary);
         }
 
-        .support-contact-text a {
+        .support-contact-text span {
             color: var(--text-muted);
             font-size: 14px;
             text-decoration: none;
             transition: color 0.2s;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
-        .support-contact-text a:hover {
+        .support-contact-row:hover .support-contact-text span {
             color: var(--accent-mint);
-        }
-
-        .support-form {
-            background-color: var(--card-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .support-form h2 {
-            font-size: 28px;
-            margin-bottom: 16px;
-        }
-
-        .support-form p {
-            color: var(--text-muted);
-            margin-bottom: 24px;
-            font-size: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: var(--text-muted);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 14px 16px;
-            border-radius: 8px;
-            background-color: rgba(18, 24, 22, 0.6);
-            border: 1px solid var(--border-color);
-            color: #fff;
-            font-family: inherit;
-            font-size: 15px;
-            transition: all 0.2s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent-mint);
-            box-shadow: 0 0 10px rgba(0, 255, 136, 0.1);
         }
 
         /* Footer */
@@ -667,6 +628,10 @@
             }
             .doc-card h1 {
                 font-size: 32px;
+            }
+            .support-channels-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
             }
         }
 
@@ -1033,52 +998,62 @@
 
     <!-- Tab 2: Support -->
     <main id="tab-support" class="tab-section">
-        <div class="container support-grid">
-            <div class="support-info-card">
-                <div>
-                    <h2>Scaena Support</h2>
-                    <p>Have questions, ran into a sync issue, or want to suggest a feature? We are here to help you get the most out of your watchlists.</p>
-                </div>
-                
-                <div style="display: flex; flex-direction: column; gap: 16px;">
-                    <div class="support-contact-row">
+        <div class="container">
+            <div class="doc-card">
+                <h1>Scaena Support</h1>
+                <div class="doc-meta">Have questions, ran into a sync issue, or want to suggest a feature? We are here to help you get the most out of your watchlists.</div>
+                <div class="doc-divider"></div>
+
+                <div class="support-channels-grid">
+                    <a href="https://github.com/caldwellapps/scaena-app/issues" target="_blank" rel="noopener noreferrer" class="support-contact-row">
                         <div class="support-contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                             </svg>
                         </div>
                         <div class="support-contact-text">
-                            <h3>Submit an Issue</h3>
-                            <a href="https://github.com/caldwellapps/scaena-app/issues" target="_blank" rel="noopener">caldwellapps/scaena-app/issues</a>
+                            <h3>GitHub Issues</h3>
+                            <span>caldwellapps/scaena-app/issues</span>
                         </div>
-                    </div>
-                    
-                    <div class="support-contact-row">
+                    </a>
+
+                    <a href="https://www.reddit.com/r/ScaenaApp/" target="_blank" rel="noopener noreferrer" class="support-contact-row">
                         <div class="support-contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.702zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.688-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.197-2.512-.73a.326.326 0 0 0-.232-.095z"/>
                             </svg>
                         </div>
                         <div class="support-contact-text">
                             <h3>Reddit Community</h3>
-                            <a href="https://www.reddit.com/r/ScaenaApp/" target="_blank" rel="noopener noreferrer">r/ScaenaApp</a>
+                            <span>r/ScaenaApp</span>
                         </div>
-                    </div>
+                    </a>
+
+                    <a href="https://bsky.app/profile/scaenaapp.bsky.social" target="_blank" rel="noopener noreferrer" class="support-contact-row">
+                        <div class="support-contact-icon">
+                            <svg width="22" height="22" viewBox="0 0 568 501" fill="currentColor">
+                                <path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.25 122.392-162.25-41.51-189.333-124.417-27.083 82.906-70.083 246.809-189.333 124.417-63.111-64.76-33.889-129.52 80.986-149.07-65.72 11.185-139.6-7.295-159.875-79.748C9.945 203.659 0 75.291 0 57.946 0-28.906 76.135-1.612 123.121 33.664Z"/>
+                            </svg>
+                        </div>
+                        <div class="support-contact-text">
+                            <h3>Bluesky</h3>
+                            <span>@scaenaapp.bsky.social</span>
+                        </div>
+                    </a>
+
+                    <a href="mailto:hello@caldwellappsco.com?subject=Scaena%20Support%20%26%20Feedback" class="support-contact-row">
+                        <div class="support-contact-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div class="support-contact-text">
+                            <h3>Email Support</h3>
+                            <span>hello@caldwellappsco.com</span>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            
-            <div class="support-form">
-                <div>
-                    <h2>Email Support</h2>
-                    <p>Have a question, feedback, or need help with your account? Reach out to our team directly via email.</p>
-                </div>
-                <a href="mailto:hello@caldwellappsco.com?subject=Scaena%20Support%20%26%20Feedback" class="cta-btn" style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-decoration: none; font-size: 15px; min-height: 56px;">
-                    <svg class="stroke-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#121816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill: none !important; stroke: #121816 !important; flex-shrink: 0;">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                        <polyline points="22,6 12,13 2,6"/>
-                    </svg>
-                    Email hello@caldwellappsco.com
-                </a>
             </div>
         </div>
     </main>
@@ -1197,6 +1172,7 @@
                 <span onclick="showTab('support')" class="footer-link">Support</span>
                 <span onclick="showTab('faq')" class="footer-link">FAQ</span>
                 <a href="https://www.reddit.com/r/ScaenaApp/" target="_blank" rel="noopener noreferrer" class="footer-link">Reddit</a>
+                <a href="https://bsky.app/profile/scaenaapp.bsky.social" target="_blank" rel="noopener noreferrer" class="footer-link">Bluesky</a>
                 <span onclick="showTab('privacy')" class="footer-link">Privacy Policy</span>
                 <span onclick="showTab('terms')" class="footer-link">Terms of Service</span>
             </div>
