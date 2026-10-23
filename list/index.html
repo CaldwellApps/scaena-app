@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Shared List • Scaena</title>
+  <meta name="description" content="View shared movie, TV show, and anime lists curated in Scaena.">
+  <link rel="icon" type="image/png" href="../logo.png">
+  <style>
+    :root {
+      --bg: #090c10;
+      --card-bg: #161b22;
+      --card-hover: #1c2128;
+      --border: #30363d;
+      --text: #f0f6fc;
+      --text-secondary: #8b949e;
+      --accent: #58a6ff;
+      --accent-rgb: 88, 166, 255;
+      --star: #e3b341;
+      --pill-bg: #21262d;
+      --radius: 14px;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+
+    /* Top Navigation Bar */
+    header.navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(9, 12, 16, 0.75);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+    }
+
+    .nav-btn {
+      background: var(--accent);
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: opacity 0.2s;
+    }
+    .nav-btn:hover { opacity: 0.9; }
+
+    /* Main Container */
+    main.container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 20px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* Hero / List Meta */
+    .list-header {
+      margin-bottom: 24px;
+    }
+
+    .list-title {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .list-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .badge.type {
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      background: rgba(var(--accent-rgb), 0.15);
+      border-color: rgba(var(--accent-rgb), 0.3);
+      color: var(--accent);
+    }
+
+    .banner-trunc {
+      margin-top: 12px;
+      padding: 8px 14px;
+      background: rgba(227, 179, 65, 0.1);
+      border: 1px solid rgba(227, 179, 65, 0.3);
+      border-radius: 8px;
+      color: var(--star);
+      font-size: 0.85rem;
+    }
+
+    /* Controls Bar */
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      border-radius: var(--radius);
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px 8px 32px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+    }
+    .search-box input:focus {
+      border-color: var(--accent);
+    }
+    .search-box svg {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      fill: var(--text-secondary);
+    }
+
+    .sort-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sort-group label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    .sort-select {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.85rem;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Grid Layout */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (min-width: 600px) {
+      .media-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 850px) {
+      .media-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (min-width: 1100px) {
+      .media-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+
+    /* Card */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(var(--accent-rgb), 0.5);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .poster-wrap {
+      aspect-ratio: 2 / 3;
+      background: #11141a;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .poster-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .poster-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      background: linear-gradient(135deg, #1b2028, #11141a);
+    }
+
+    .rating-pill {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--star);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .card-body {
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 4px;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.25;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .progress-pill {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(var(--accent-rgb), 0.15);
+      color: var(--accent);
+      padding: 2px 6px;
+      border-radius: 6px;
+      margin-top: 4px;
+      align-self: flex-start;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; }
+
+    .modal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      width: 100%;
+      max-width: 480px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: modalIn 0.18s ease-out;
+    }
+    @keyframes modalIn {
+      from { transform: scale(0.96); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-header h3 { font-size: 1.1rem; font-weight: 700; }
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-body {
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+    }
+    .modal-poster {
+      width: 110px;
+      aspect-ratio: 2/3;
+      border-radius: 10px;
+      object-fit: cover;
+      background: #11141a;
+      flex-shrink: 0;
+    }
+    .modal-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .modal-info-title { font-size: 1.15rem; font-weight: 700; }
+    .modal-info-meta { font-size: 0.85rem; color: var(--text-secondary); }
+
+    .modal-actions {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.15s, opacity 0.15s;
+    }
+    .action-btn.primary {
+      background: var(--accent);
+      color: #000;
+    }
+    .action-btn.secondary {
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .action-btn:hover { opacity: 0.9; }
+
+    /* Promo / Empty State */
+    .promo-wrap {
+      max-width: 600px;
+      margin: 60px auto 40px;
+      text-align: center;
+      padding: 40px 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+    }
+    .promo-logo {
+      width: 76px;
+      height: 76px;
+      border-radius: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(88, 166, 255, 0.25);
+    }
+    .promo-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .promo-desc {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .promo-features {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+      margin: 0 auto 28px;
+      max-width: 380px;
+      font-size: 0.92rem;
+    }
+    .promo-feature-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+    }
+    .promo-feature-row svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--accent);
+      flex-shrink: 0;
+    }
+    .app-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .app-store-btn:hover {
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 24px 20px;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    footer.site-footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer.site-footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="navbar">
+    <a href="https://caldwellappsco.com" class="nav-brand">
+      <img src="../logo.png" alt="Scaena Logo">
+      <span>Scaena</span>
+    </a>
+    <a href="https://caldwellappsco.com" class="nav-btn">Get App</a>
+  </header>
+
+  <main class="container">
+    <!-- Promotional Fallback (Rendered when no payload or decoding error) -->
+    <div id="promoState" class="promo-wrap" style="display: none;">
+      <img src="../logo.png" alt="Scaena App" class="promo-logo">
+      <h1 class="promo-title">Track What You Watch</h1>
+      <p class="promo-desc">
+        Scaena brings your movies, TV shows, and anime together into one unified experience across iPhone, iPad, and Mac.
+      </p>
+      <div class="promo-features">
+        <div class="promo-feature-row">
+          <svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+          <span>Two-way Simkl synchronization</span>
+        </div>
+        <div class="promo-feature-row">
+          <svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+          <span>Offline-first iCloud & Core Data storage</span>
+        </div>
+        <div class="promo-feature-row">
+          <svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+          <span>Interactive lock screen & home widgets</span>
+        </div>
+        <div class="promo-feature-row">
+          <svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>
+          <span>Shareable interactive web lists</span>
+        </div>
+      </div>
+      <a href="https://caldwellappsco.com" class="app-store-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.84c.67-.82 1.13-1.96 1.01-3.1-.97.04-2.15.65-2.85 1.47-.61.71-1.15 1.87-1.01 2.98 1.09.08 2.19-.53 2.85-1.35z"/></svg>
+        <span>Download on the App Store</span>
+      </a>
+    </div>
+
+    <!-- Active List View -->
+    <div id="listView" style="display: none;">
+      <div class="list-header">
+        <h1 class="list-title" id="listTitle">Shared List</h1>
+        <div class="list-meta">
+          <span class="badge type" id="listTypeBadge">TV</span>
+          <span class="badge" id="listCountBadge">0 items</span>
+          <span class="badge" id="listDateBadge">Shared Today</span>
+        </div>
+        <div id="truncBanner" class="banner-trunc" style="display: none;"></div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls-bar">
+        <div class="search-box">
+          <svg viewBox="0 0 16 16"><path d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 10-1.06 1.06l3.04 3.04a.75.75 0 101.06-1.06l-3.04-3.04z"/></svg>
+          <input type="text" id="searchInput" placeholder="Filter in list...">
+        </div>
+        <div class="sort-group">
+          <label for="sortSelect">Sort:</label>
+          <select id="sortSelect" class="sort-select">
+            <option value="original">Original Order</option>
+            <option value="titleAsc">Title (A–Z)</option>
+            <option value="titleDesc">Title (Z–A)</option>
+            <option value="ratingDesc">Highest Rated</option>
+            <option value="yearDesc">Newest</option>
+            <option value="yearAsc">Oldest</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div class="media-grid" id="mediaGrid"></div>
+    </div>
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">Show Title</h3>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="" class="modal-poster" id="modalPoster">
+        <div class="modal-info">
+          <div class="modal-info-title" id="modalInfoTitle">Title</div>
+          <div class="modal-info-meta" id="modalInfoMeta">Year • Rating</div>
+          <div id="modalProgressWrap" style="margin-top: 4px;"></div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <a href="#" target="_blank" rel="noopener" class="action-btn primary" id="modalSimklBtn">
+          View on Simkl
+        </a>
+        <a href="#" target="_blank" rel="noopener" class="action-btn secondary" id="modalImdbBtn" style="display: none;">
+          View on IMDb
+        </a>
+        <a href="#" class="action-btn secondary" id="modalScaenaBtn">
+          Open in Scaena App
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer with Simkl Attribution -->
+  <footer class="site-footer">
+    <div>Metadata & artwork powered by <a href="https://simkl.com" target="_blank" rel="noopener">Simkl</a>.</div>
+    <div>Curated with <a href="https://caldwellappsco.com">Scaena for iOS & macOS</a>.</div>
+  </footer>
+
+  <script>
+    // --- State ---
+    let currentPayload = null;
+    let renderedItems = [];
+
+    // --- Base64URL to Uint8Array ---
+    function base64UrlToUint8Array(str) {
+      let b64 = str.replace(/-/g, '+').replace(/_/g, '/');
+      while (b64.length % 4) b64 += '=';
+      const binary = atob(b64);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      return bytes;
+    }
+
+    // --- Decompress zlib payload via DecompressionStream ---
+    async function decompressZlib(bytes) {
+      if (typeof DecompressionStream !== 'undefined') {
+        for (const format of ['deflate-raw', 'deflate']) {
+          try {
+            const ds = new DecompressionStream(format);
+            const writer = ds.writable.getWriter();
+            writer.write(bytes);
+            writer.close();
+            const reader = ds.readable.getReader();
+            const chunks = [];
+            while (true) {
+              const { value, done } = await reader.read();
+              if (done) break;
+              chunks.push(value);
+            }
+            let totalLen = chunks.reduce((acc, c) => acc + c.length, 0);
+            let merged = new Uint8Array(totalLen);
+            let offset = 0;
+            for (let c of chunks) {
+              merged.set(c, offset);
+              offset += c.length;
+            }
+            return new TextDecoder('utf-8').decode(merged);
+          } catch (e) {
+            // Try next format
+          }
+        }
+      }
+      throw new Error('Decompression unsupported in this environment');
+    }
+
+    // --- Poster URL Resolver ---
+    function resolvePosterUrl(posterPath) {
+      if (!posterPath) return null;
+      if (posterPath.startsWith('http://') || posterPath.startsWith('https://')) {
+        return posterPath;
+      }
+      const clean = posterPath.trim();
+      return `https://simkl.in/posters/${clean}_m.webp`;
+    }
+
+    // --- Modal Management ---
+    const backdrop = document.getElementById('modalBackdrop');
+    const modalClose = document.getElementById('modalClose');
+
+    function openModal(item, listType) {
+      document.getElementById('modalTitle').textContent = item.t;
+      document.getElementById('modalInfoTitle').textContent = item.t;
+      
+      const metaParts = [];
+      if (item.y) metaParts.push(item.y);
+      if (item.r) metaParts.push(`★ ${item.r.toFixed(1)}`);
+      document.getElementById('modalInfoMeta').textContent = metaParts.join(' • ');
+
+      const posterUrl = resolvePosterUrl(item.p);
+      const modalPoster = document.getElementById('modalPoster');
+      if (posterUrl) {
+        modalPoster.src = posterUrl;
+        modalPoster.style.display = 'block';
+      } else {
+        modalPoster.style.display = 'none';
+      }
+
+      // Progress wrap
+      const progWrap = document.getElementById('modalProgressWrap');
+      progWrap.innerHTML = '';
+      if (item.ep) {
+        const epPill = document.createElement('span');
+        epPill.className = 'progress-pill';
+        epPill.textContent = item.ep;
+        progWrap.appendChild(epPill);
+      } else if (item.w !== undefined && item.tot) {
+        const progPill = document.createElement('span');
+        progPill.className = 'progress-pill';
+        progPill.textContent = `${item.w}/${item.tot} Watched`;
+        progWrap.appendChild(progPill);
+      }
+
+      // Action links
+      const typePath = listType === 'movie' ? 'movies' : (listType === 'anime' ? 'anime' : 'tv');
+      const simklBtn = document.getElementById('modalSimklBtn');
+      if (item.id) {
+        simklBtn.href = `https://simkl.com/${typePath}/${item.id}`;
+        simklBtn.style.display = 'flex';
+      } else {
+        simklBtn.style.display = 'none';
+      }
+
+      const imdbBtn = document.getElementById('modalImdbBtn');
+      if (item.imdb) {
+        const cleanImdb = item.imdb.startsWith('tt') ? item.imdb : `tt${item.imdb}`;
+        imdbBtn.href = `https://www.imdb.com/title/${cleanImdb}/`;
+        imdbBtn.style.display = 'flex';
+      } else {
+        imdbBtn.style.display = 'none';
+      }
+
+      const scaenaBtn = document.getElementById('modalScaenaBtn');
+      scaenaBtn.href = `scaena://item/${item.id || 0}`;
+
+      backdrop.classList.add('open');
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('open');
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // --- Render Grid ---
+    function renderGrid(items, listType) {
+      const grid = document.getElementById('mediaGrid');
+      grid.innerHTML = '';
+
+      if (items.length === 0) {
+        const empty = document.createElement('div');
+        empty.style.gridColumn = '1 / -1';
+        empty.style.textAlign = 'center';
+        empty.style.padding = '40px 20px';
+        empty.style.color = 'var(--text-secondary)';
+        empty.textContent = 'No matching items found.';
+        grid.appendChild(empty);
+        return;
+      }
+
+      items.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.addEventListener('click', () => openModal(item, listType));
+
+        const posterWrap = document.createElement('div');
+        posterWrap.className = 'poster-wrap';
+
+        const posterUrl = resolvePosterUrl(item.p);
+        if (posterUrl) {
+          const img = document.createElement('img');
+          img.className = 'poster-img';
+          img.src = posterUrl;
+          img.alt = item.t;
+          img.loading = 'lazy';
+          img.onerror = function() {
+            this.style.display = 'none';
+            const fallback = posterWrap.querySelector('.poster-fallback');
+            if (fallback) fallback.style.display = 'flex';
+          };
+          posterWrap.appendChild(img);
+        }
+
+        const fallback = document.createElement('div');
+        fallback.className = 'poster-fallback';
+        fallback.textContent = item.t;
+        if (!posterUrl) fallback.style.display = 'flex';
+        posterWrap.appendChild(fallback);
+
+        if (item.r) {
+          const ratingPill = document.createElement('div');
+          ratingPill.className = 'rating-pill';
+          ratingPill.innerHTML = `<span>★</span><span>${item.r.toFixed(1)}</span>`;
+          posterWrap.appendChild(ratingPill);
+        }
+
+        card.appendChild(posterWrap);
+
+        const cardBody = document.createElement('div');
+        cardBody.className = 'card-body';
+
+        const title = document.createElement('div');
+        title.className = 'card-title';
+        title.textContent = item.t;
+        cardBody.appendChild(title);
+
+        const subtitle = document.createElement('div');
+        subtitle.className = 'card-subtitle';
+        subtitle.textContent = item.y ? `${item.y}` : '';
+        cardBody.appendChild(subtitle);
+
+        if (item.ep) {
+          const epPill = document.createElement('span');
+          epPill.className = 'progress-pill';
+          epPill.textContent = item.ep;
+          cardBody.appendChild(epPill);
+        } else if (item.w !== undefined && item.tot) {
+          const progPill = document.createElement('span');
+          progPill.className = 'progress-pill';
+          progPill.textContent = `${item.w}/${item.tot}`;
+          cardBody.appendChild(progPill);
+        }
+
+        card.appendChild(cardBody);
+        grid.appendChild(card);
+      });
+    }
+
+    // --- Search & Sort Handlers ---
+    function updateFilteredItems() {
+      if (!currentPayload || !currentPayload.items) return;
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      let filtered = currentPayload.items.slice();
+
+      if (q.length > 0) {
+        filtered = filtered.filter(it => (it.t || '').toLowerCase().includes(q));
+      }
+
+      const sortMode = document.getElementById('sortSelect').value;
+      if (sortMode === 'titleAsc') {
+        filtered.sort((a, b) => (a.t || '').localeCompare(b.t || ''));
+      } else if (sortMode === 'titleDesc') {
+        filtered.sort((a, b) => (b.t || '').localeCompare(a.t || ''));
+      } else if (sortMode === 'ratingDesc') {
+        filtered.sort((a, b) => (b.r || 0) - (a.r || 0));
+      } else if (sortMode === 'yearDesc') {
+        filtered.sort((a, b) => (b.y || 0) - (a.y || 0));
+      } else if (sortMode === 'yearAsc') {
+        filtered.sort((a, b) => (a.y || 9999) - (b.y || 9999));
+      }
+
+      renderGrid(filtered, currentPayload.type);
+    }
+
+    document.getElementById('searchInput').addEventListener('input', updateFilteredItems);
+    document.getElementById('sortSelect').addEventListener('change', updateFilteredItems);
+
+    // --- Bootstrap & Hash Extraction ---
+    async function init() {
+      const hash = window.location.hash;
+      const match = hash.match(/data=([^&]+)/);
+
+      if (!match) {
+        document.getElementById('promoState').style.display = 'block';
+        return;
+      }
+
+      try {
+        const rawBytes = base64UrlToUint8Array(match[1]);
+        const jsonStr = await decompressZlib(rawBytes);
+        const payload = JSON.parse(jsonStr);
+
+        if (!payload || !payload.items) {
+          throw new Error('Invalid payload schema');
+        }
+
+        currentPayload = payload;
+
+        // Populate Header
+        document.getElementById('listTitle').textContent = payload.title || 'Shared List';
+        document.title = `${payload.title || 'Shared List'} • Scaena`;
+
+        const typeBadge = document.getElementById('listTypeBadge');
+        typeBadge.textContent = (payload.type || 'TV').toUpperCase();
+
+        const countBadge = document.getElementById('listCountBadge');
+        const itemCount = payload.items.length;
+        countBadge.textContent = `${itemCount} item${itemCount === 1 ? '' : 's'}`;
+
+        const dateBadge = document.getElementById('listDateBadge');
+        if (payload.c) {
+          const d = new Date(payload.c * 1000);
+          dateBadge.textContent = d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+        } else {
+          dateBadge.style.display = 'none';
+        }
+
+        // Truncation banner
+        if (payload.totalCount && payload.totalCount > itemCount) {
+          const banner = document.getElementById('truncBanner');
+          banner.textContent = `Showing top ${itemCount} of ${payload.totalCount} items in this list.`;
+          banner.style.display = 'block';
+        }
+
+        // Show List View
+        document.getElementById('listView').style.display = 'block';
+        renderGrid(payload.items, payload.type);
+
+      } catch (err) {
+        console.error('Failed to parse share data:', err);
+        document.getElementById('promoState').style.display = 'block';
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
