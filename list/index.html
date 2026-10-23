@@ -6,27 +6,36 @@
   <title>Shared List • Scaena</title>
   <meta name="description" content="View shared movie, TV show, and anime lists curated in Scaena.">
   <link rel="icon" type="image/png" href="../logo.png">
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #090c10;
-      --card-bg: #161b22;
-      --card-hover: #1c2128;
-      --border: #30363d;
-      --text: #f0f6fc;
-      --text-secondary: #8b949e;
-      --accent: #58a6ff;
-      --accent-rgb: 88, 166, 255;
-      --star: #e3b341;
-      --pill-bg: #21262d;
+      /* Scaena Signature Brand Palette */
+      --bg: #121816;
+      --card-bg: #1a221f;
+      --card-hover: #222c28;
+      --border: #25302c;
+      --text: #ffffff;
+      --text-secondary: #9eb1a8;
+      --accent: #00ff88;
+      --accent-rgb: 0, 255, 136;
+      --accent-glow: rgba(0, 255, 136, 0.15);
+      --star: #f5c518;
+      --pill-bg: #232d28;
       --radius: 14px;
-      --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: var(--font);
+      font-family: var(--font-body);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -41,9 +50,9 @@
       z-index: 50;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      background: rgba(9, 12, 16, 0.75);
+      background: rgba(18, 24, 22, 0.85);
       border-bottom: 1px solid var(--border);
-      padding: 12px 20px;
+      padding: 10px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -55,28 +64,61 @@
       gap: 10px;
       text-decoration: none;
       color: var(--text);
+      font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       letter-spacing: -0.01em;
     }
 
     .nav-brand img {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
     }
 
-    .nav-btn {
-      background: var(--accent);
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.85rem;
+    /* Apple App Store Badge Button */
+    .app-store-badge-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #000;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 10px;
       padding: 6px 14px;
-      border-radius: 20px;
-      transition: opacity 0.2s;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s, transform 0.15s;
     }
-    .nav-btn:hover { opacity: 0.9; }
+    .app-store-badge-btn:hover {
+      background: #111;
+      border-color: var(--accent);
+      transform: scale(1.02);
+    }
+    .badge-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      fill: #fff;
+    }
+    .badge-text-wrap {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      text-align: left;
+    }
+    .badge-small-text {
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      opacity: 0.85;
+      text-transform: uppercase;
+    }
+    .badge-large-text {
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
 
     /* Main Container */
     main.container {
@@ -93,10 +135,11 @@
     }
 
     .list-title {
-      font-size: 1.9rem;
+      font-family: var(--font-heading);
+      font-size: 2.1rem;
       font-weight: 800;
       letter-spacing: -0.03em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       line-height: 1.2;
     }
 
@@ -104,7 +147,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       color: var(--text-secondary);
       font-size: 0.85rem;
     }
@@ -112,32 +155,38 @@
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
       background: var(--pill-bg);
       border: 1px solid var(--border);
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 12px;
       font-weight: 500;
       color: var(--text);
+    }
+    .badge svg {
+      width: 13px;
+      height: 13px;
+      fill: var(--text-secondary);
+      flex-shrink: 0;
     }
     .badge.type {
       text-transform: uppercase;
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.05em;
-      background: rgba(var(--accent-rgb), 0.15);
+      background: rgba(var(--accent-rgb), 0.12);
       border-color: rgba(var(--accent-rgb), 0.3);
       color: var(--accent);
     }
 
     .banner-trunc {
-      margin-top: 12px;
-      padding: 8px 14px;
-      background: rgba(227, 179, 65, 0.1);
-      border: 1px solid rgba(227, 179, 65, 0.3);
-      border-radius: 8px;
+      margin-top: 14px;
+      padding: 10px 16px;
+      background: rgba(245, 197, 24, 0.1);
+      border: 1px solid rgba(245, 197, 24, 0.3);
+      border-radius: 10px;
       color: var(--star);
-      font-size: 0.85rem;
+      font-size: 0.88rem;
     }
 
     /* Controls Bar */
@@ -165,22 +214,24 @@
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 8px 12px 8px 32px;
+      padding: 9px 12px 9px 34px;
       color: var(--text);
       font-size: 0.9rem;
       font-family: inherit;
       outline: none;
+      transition: border-color 0.15s;
     }
     .search-box input:focus {
       border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
     }
     .search-box svg {
       position: absolute;
-      left: 10px;
+      left: 11px;
       top: 50%;
       transform: translateY(-50%);
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
       fill: var(--text-secondary);
     }
 
@@ -190,7 +241,7 @@
       gap: 8px;
     }
     .sort-group label {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-secondary);
     }
     .sort-select {
@@ -198,11 +249,14 @@
       border: 1px solid var(--border);
       color: var(--text);
       font-size: 0.85rem;
-      padding: 6px 10px;
+      padding: 8px 12px;
       border-radius: 8px;
       font-family: inherit;
       outline: none;
       cursor: pointer;
+    }
+    .sort-select:focus {
+      border-color: var(--accent);
     }
 
     /* Grid Layout */
@@ -234,14 +288,14 @@
       position: relative;
     }
     .card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: rgba(var(--accent-rgb), 0.5);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4), 0 0 16px var(--accent-glow);
     }
 
     .poster-wrap {
       aspect-ratio: 2 / 3;
-      background: #11141a;
+      background: #0d1210;
       position: relative;
       overflow: hidden;
       display: flex;
@@ -262,40 +316,43 @@
       justify-content: center;
       padding: 16px;
       text-align: center;
+      font-family: var(--font-heading);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--text-secondary);
-      background: linear-gradient(135deg, #1b2028, #11141a);
+      background: linear-gradient(135deg, #1f2723, #121816);
     }
 
     .rating-pill {
       position: absolute;
       top: 8px;
       right: 8px;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(18, 24, 22, 0.85);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       color: var(--star);
       font-size: 0.75rem;
       font-weight: 700;
-      padding: 2px 7px;
+      padding: 3px 8px;
       border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       gap: 3px;
     }
 
     .card-body {
-      padding: 10px 12px;
+      padding: 12px;
       display: flex;
       flex-direction: column;
       flex: 1;
-      gap: 4px;
+      gap: 6px;
     }
 
     .card-title {
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
       line-height: 1.25;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -304,7 +361,7 @@
     }
 
     .card-subtitle {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--text-secondary);
       display: flex;
       align-items: center;
@@ -312,25 +369,39 @@
       margin-top: auto;
     }
 
+    /* Progress Badges */
     .progress-pill {
-      display: inline-block;
-      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
       font-weight: 600;
-      background: rgba(var(--accent-rgb), 0.15);
+      background: rgba(var(--accent-rgb), 0.12);
       color: var(--accent);
-      padding: 2px 6px;
+      border: 1px solid rgba(var(--accent-rgb), 0.25);
+      padding: 3px 8px;
       border-radius: 6px;
       margin-top: 4px;
       align-self: flex-start;
+    }
+    .progress-pill svg {
+      width: 10px;
+      height: 10px;
+      fill: currentColor;
+    }
+    .progress-pill.completed {
+      background: rgba(46, 204, 113, 0.15);
+      color: #2ecc71;
+      border-color: rgba(46, 204, 113, 0.3);
     }
 
     /* Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -342,12 +413,13 @@
     .modal-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 20px;
       width: 100%;
       max-width: 480px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
       animation: modalIn 0.18s ease-out;
     }
     @keyframes modalIn {
@@ -362,12 +434,16 @@
       align-items: center;
       justify-content: space-between;
     }
-    .modal-header h3 { font-size: 1.1rem; font-weight: 700; }
+    .modal-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
     .modal-close {
       background: none;
       border: none;
       color: var(--text-secondary);
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       cursor: pointer;
       line-height: 1;
     }
@@ -375,14 +451,14 @@
     .modal-body {
       padding: 20px;
       display: flex;
-      gap: 16px;
+      gap: 18px;
     }
     .modal-poster {
       width: 110px;
       aspect-ratio: 2/3;
       border-radius: 10px;
       object-fit: cover;
-      background: #11141a;
+      background: #0d1210;
       flex-shrink: 0;
     }
     .modal-info {
@@ -391,8 +467,13 @@
       gap: 8px;
       flex: 1;
     }
-    .modal-info-title { font-size: 1.15rem; font-weight: 700; }
-    .modal-info-meta { font-size: 0.85rem; color: var(--text-secondary); }
+    .modal-info-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .modal-info-meta { font-size: 0.88rem; color: var(--text-secondary); }
 
     .modal-actions {
       padding: 16px 20px;
@@ -407,12 +488,13 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 10px 14px;
-      border-radius: 10px;
+      padding: 11px 16px;
+      border-radius: 12px;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: background 0.15s, opacity 0.15s;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: background 0.15s, opacity 0.15s, transform 0.15s;
     }
     .action-btn.primary {
       background: var(--accent);
@@ -423,105 +505,98 @@
       border: 1px solid var(--border);
       color: var(--text);
     }
-    .action-btn:hover { opacity: 0.9; }
+    .action-btn:hover { opacity: 0.92; transform: scale(1.01); }
 
     /* Promo / Empty State */
     .promo-wrap {
       max-width: 600px;
       margin: 60px auto 40px;
       text-align: center;
-      padding: 40px 24px;
+      padding: 44px 28px;
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+      border-radius: 24px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
     }
     .promo-logo {
-      width: 76px;
-      height: 76px;
-      border-radius: 18px;
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
       margin-bottom: 20px;
-      box-shadow: 0 8px 24px rgba(88, 166, 255, 0.25);
+      box-shadow: 0 10px 30px var(--accent-glow);
     }
     .promo-title {
-      font-size: 1.8rem;
+      font-family: var(--font-heading);
+      font-size: 2rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
     }
     .promo-desc {
       color: var(--text-secondary);
-      font-size: 1rem;
+      font-size: 1.05rem;
       line-height: 1.5;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
     .promo-features {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       text-align: left;
-      margin: 0 auto 28px;
-      max-width: 380px;
-      font-size: 0.92rem;
+      margin: 0 auto 30px;
+      max-width: 400px;
+      font-size: 0.95rem;
     }
     .promo-feature-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       color: var(--text);
     }
     .promo-feature-row svg {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       fill: var(--accent);
       flex-shrink: 0;
-    }
-    .app-store-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
-      color: #000;
-      font-weight: 600;
-      padding: 12px 24px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: transform 0.15s, opacity 0.15s;
-    }
-    .app-store-btn:hover {
-      transform: scale(1.02);
-      opacity: 0.95;
     }
 
     /* Footer */
     footer.site-footer {
       margin-top: auto;
       text-align: center;
-      padding: 24px 20px;
+      padding: 28px 20px;
       color: var(--text-secondary);
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       border-top: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
     }
     footer.site-footer a {
       color: var(--accent);
       text-decoration: none;
+      font-weight: 500;
     }
     footer.site-footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-  <!-- Top Bar -->
+  <!-- Top Navigation Bar -->
   <header class="navbar">
     <a href="https://caldwellappsco.com" class="nav-brand">
       <img src="../logo.png" alt="Scaena Logo">
       <span>Scaena</span>
     </a>
-    <a href="https://caldwellappsco.com" class="nav-btn">Get App</a>
+
+    <!-- Official Apple App Store CTA Button -->
+    <a href="https://apps.apple.com/app/id6787125515" target="_blank" rel="noopener" class="app-store-badge-btn" title="Download Scaena on the App Store">
+      <svg class="badge-icon" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.84c.67-.82 1.13-1.96 1.01-3.1-.97.04-2.15.65-2.85 1.47-.61.71-1.15 1.87-1.01 2.98 1.09.08 2.19-.53 2.85-1.35z"/></svg>
+      <div class="badge-text-wrap">
+        <span class="badge-small-text">Download on the</span>
+        <span class="badge-large-text">App Store</span>
+      </div>
+    </a>
   </header>
 
   <main class="container">
@@ -550,9 +625,12 @@
           <span>Shareable interactive web lists</span>
         </div>
       </div>
-      <a href="https://caldwellappsco.com" class="app-store-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.84c.67-.82 1.13-1.96 1.01-3.1-.97.04-2.15.65-2.85 1.47-.61.71-1.15 1.87-1.01 2.98 1.09.08 2.19-.53 2.85-1.35z"/></svg>
-        <span>Download on the App Store</span>
+      <a href="https://apps.apple.com/app/id6787125515" target="_blank" rel="noopener" class="app-store-badge-btn" style="padding: 10px 20px;">
+        <svg class="badge-icon" viewBox="0 0 24 24" style="width: 24px; height: 24px;"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.84c.67-.82 1.13-1.96 1.01-3.1-.97.04-2.15.65-2.85 1.47-.61.71-1.15 1.87-1.01 2.98 1.09.08 2.19-.53 2.85-1.35z"/></svg>
+        <div class="badge-text-wrap">
+          <span class="badge-small-text">Download on the</span>
+          <span class="badge-large-text" style="font-size: 1.1rem;">App Store</span>
+        </div>
       </a>
     </div>
 
@@ -563,7 +641,10 @@
         <div class="list-meta">
           <span class="badge type" id="listTypeBadge">TV</span>
           <span class="badge" id="listCountBadge">0 items</span>
-          <span class="badge" id="listDateBadge">Shared Today</span>
+          <span class="badge" id="listDateBadge">
+            <svg viewBox="0 0 16 16"><path d="M4.75 0a.75.75 0 01.75.75V2h5V.75a.75.75 0 011.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0113.25 16H2.75A1.75 1.75 0 011 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 014.75 0zm0 3.5H2.75a.25.25 0 00-.25.25V5h11V3.75a.25.25 0 00-.25-.25h-8.75zm8.75 3H2.5v7.75c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25V6.5z"/></svg>
+            <span id="listDateText">Shared on Oct 23, 2026</span>
+          </span>
         </div>
         <div id="truncBanner" class="banner-trunc" style="display: none;"></div>
       </div>
@@ -608,14 +689,14 @@
         </div>
       </div>
       <div class="modal-actions">
-        <a href="#" target="_blank" rel="noopener" class="action-btn primary" id="modalSimklBtn">
+        <a href="#" class="action-btn primary" id="modalScaenaBtn">
+          Open in Scaena App
+        </a>
+        <a href="#" target="_blank" rel="noopener" class="action-btn secondary" id="modalSimklBtn">
           View on Simkl
         </a>
         <a href="#" target="_blank" rel="noopener" class="action-btn secondary" id="modalImdbBtn" style="display: none;">
           View on IMDb
-        </a>
-        <a href="#" class="action-btn secondary" id="modalScaenaBtn">
-          Open in Scaena App
         </a>
       </div>
     </div>
@@ -624,7 +705,7 @@
   <!-- Footer with Simkl Attribution -->
   <footer class="site-footer">
     <div>Metadata & artwork powered by <a href="https://simkl.com" target="_blank" rel="noopener">Simkl</a>.</div>
-    <div>Curated with <a href="https://caldwellappsco.com">Scaena for iOS & macOS</a>.</div>
+    <div>Curated with <a href="https://caldwellappsco.com">Scaena</a>.</div>
   </footer>
 
   <script>
@@ -644,7 +725,7 @@
       return bytes;
     }
 
-    // --- Decompress zlib payload via DecompressionStream ---
+    // --- Decompress raw deflate / zlib via DecompressionStream ---
     async function decompressZlib(bytes) {
       if (typeof DecompressionStream !== 'undefined') {
         for (const format of ['deflate-raw', 'deflate']) {
@@ -669,7 +750,7 @@
             }
             return new TextDecoder('utf-8').decode(merged);
           } catch (e) {
-            // Try next format
+            // try next format
           }
         }
       }
@@ -711,20 +792,29 @@
       // Progress wrap
       const progWrap = document.getElementById('modalProgressWrap');
       progWrap.innerHTML = '';
-      if (item.ep) {
-        const epPill = document.createElement('span');
-        epPill.className = 'progress-pill';
-        epPill.textContent = item.ep;
-        progWrap.appendChild(epPill);
-      } else if (item.w !== undefined && item.tot) {
-        const progPill = document.createElement('span');
-        progPill.className = 'progress-pill';
-        progPill.textContent = `${item.w}/${item.tot} Watched`;
-        progWrap.appendChild(progPill);
+      const isMovie = (listType === 'movie' || item.type === 'movie');
+
+      if (!isMovie) {
+        if (item.ep) {
+          const epPill = document.createElement('span');
+          epPill.className = 'progress-pill';
+          epPill.textContent = `Up Next: ${item.ep}`;
+          progWrap.appendChild(epPill);
+        } else if (item.w !== undefined && item.tot) {
+          const progPill = document.createElement('span');
+          if (item.w >= item.tot) {
+            progPill.className = 'progress-pill completed';
+            progPill.textContent = `Completed (${item.w}/${item.tot})`;
+          } else {
+            progPill.className = 'progress-pill';
+            progPill.textContent = `${item.w}/${item.tot} Episodes Watched`;
+          }
+          progWrap.appendChild(progPill);
+        }
       }
 
       // Action links
-      const typePath = listType === 'movie' ? 'movies' : (listType === 'anime' ? 'anime' : 'tv');
+      const typePath = isMovie ? 'movies' : ((listType === 'anime' || item.type === 'anime') ? 'anime' : 'tv');
       const simklBtn = document.getElementById('modalSimklBtn');
       if (item.id) {
         simklBtn.href = `https://simkl.com/${typePath}/${item.id}`;
@@ -742,8 +832,10 @@
         imdbBtn.style.display = 'none';
       }
 
+      // Deep link into Scaena
       const scaenaBtn = document.getElementById('modalScaenaBtn');
-      scaenaBtn.href = `scaena://item/${item.id || 0}`;
+      const deepLinkHost = isMovie ? 'movie' : 'show';
+      scaenaBtn.href = `scaena://${deepLinkHost}/${item.id || 0}`;
 
       backdrop.classList.add('open');
     }
@@ -775,6 +867,8 @@
         grid.appendChild(empty);
         return;
       }
+
+      const isMovie = (listType === 'movie');
 
       items.forEach((item, index) => {
         const card = document.createElement('div');
@@ -827,16 +921,24 @@
         subtitle.textContent = item.y ? `${item.y}` : '';
         cardBody.appendChild(subtitle);
 
-        if (item.ep) {
-          const epPill = document.createElement('span');
-          epPill.className = 'progress-pill';
-          epPill.textContent = item.ep;
-          cardBody.appendChild(epPill);
-        } else if (item.w !== undefined && item.tot) {
-          const progPill = document.createElement('span');
-          progPill.className = 'progress-pill';
-          progPill.textContent = `${item.w}/${item.tot}`;
-          cardBody.appendChild(progPill);
+        // Progress Pill (for non-movies)
+        if (!isMovie && item.type !== 'movie') {
+          if (item.ep) {
+            const epPill = document.createElement('span');
+            epPill.className = 'progress-pill';
+            epPill.innerHTML = `<svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg> <span>${item.ep}</span>`;
+            cardBody.appendChild(epPill);
+          } else if (item.w !== undefined && item.tot) {
+            const progPill = document.createElement('span');
+            if (item.w >= item.tot) {
+              progPill.className = 'progress-pill completed';
+              progPill.innerHTML = `<svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg> <span>Completed</span>`;
+            } else if (item.w > 0) {
+              progPill.className = 'progress-pill';
+              progPill.innerHTML = `<svg viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg> <span>${item.w}/${item.tot} Watched</span>`;
+            }
+            if (progPill.innerHTML) cardBody.appendChild(progPill);
+          }
         }
 
         card.appendChild(cardBody);
@@ -906,9 +1008,12 @@
         countBadge.textContent = `${itemCount} item${itemCount === 1 ? '' : 's'}`;
 
         const dateBadge = document.getElementById('listDateBadge');
+        const dateText = document.getElementById('listDateText');
         if (payload.c) {
           const d = new Date(payload.c * 1000);
-          dateBadge.textContent = d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+          const formattedDate = d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+          dateText.textContent = `Shared on ${formattedDate}`;
+          dateBadge.style.display = 'inline-flex';
         } else {
           dateBadge.style.display = 'none';
         }
