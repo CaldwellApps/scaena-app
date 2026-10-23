@@ -3,27 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Shared List • Scaena</title>
+  <title>Scaena • Curated Watchlist</title>
   <meta name="description" content="View shared movie, TV show, and anime lists curated in Scaena.">
 
-  <!-- Favicon & Apple Touch Icon -->
+  <!-- Favicon & Apple Touch Icon (Compact iMessage Preview) -->
   <link rel="icon" type="image/png" sizes="32x32" href="https://caldwellappsco.com/logo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="https://caldwellappsco.com/logo.png">
 
-  <!-- Open Graph / iMessage / Social Card -->
+  <!-- Open Graph / Social Card (No og:image ensures compact horizontal preview tile) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Shared List • Scaena">
+  <meta property="og:title" content="Scaena • Curated Watchlist">
   <meta property="og:description" content="View shared movie, TV show, and anime lists curated in Scaena.">
   <meta property="og:url" content="https://caldwellappsco.com/list/">
-  <meta property="og:image" content="https://caldwellappsco.com/logo.png">
-  <meta property="og:image:width" content="1024">
-  <meta property="og:image:height" content="1024">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Shared List • Scaena">
+  <meta name="twitter:title" content="Scaena • Curated Watchlist">
   <meta name="twitter:description" content="View shared movie, TV show, and anime lists curated in Scaena.">
-  <meta name="twitter:image" content="https://caldwellappsco.com/logo.png">
 
   <!-- Google Fonts: Inter & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -995,6 +991,15 @@
 
     // --- Bootstrap & Hash Extraction ---
     async function init() {
+      // Immediate query param title resolution for instant render
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryTitle = urlParams.get('title');
+      if (queryTitle) {
+        document.title = `${queryTitle} • Scaena`;
+        const listTitleEl = document.getElementById('listTitle');
+        if (listTitleEl) listTitleEl.textContent = queryTitle;
+      }
+
       const hash = window.location.hash;
       const match = hash.match(/data=([^&]+)/);
 
