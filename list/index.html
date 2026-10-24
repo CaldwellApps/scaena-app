@@ -749,25 +749,17 @@
       if (typeof DecompressionStream !== 'undefined') {
         for (const format of ['deflate-raw', 'deflate']) {
           try {
-            const ds = new DecompressionStream(format);
-            const writer = ds.writable.getWriter();
-            await writer.write(bytes);
-            await writer.close();
-            const reader = ds.readable.getReader();
-            const chunks = [];
-            while (true) {
-              const { value, done } = await reader.read();
-              if (done) break;
-              chunks.push(value);
+            const rs = new ReadableStream({
+              start(controller) {
+                controller.enqueue(bytes);
+                controller.close();
+              }
+            });
+            const decompressed = rs.pipeThrough(new DecompressionStream(format));
+            const text = await new Response(decompressed).text();
+            if (text && text.length > 0) {
+              return text;
             }
-            let totalLen = chunks.reduce((acc, c) => acc + c.length, 0);
-            let merged = new Uint8Array(totalLen);
-            let offset = 0;
-            for (let c of chunks) {
-              merged.set(c, offset);
-              offset += c.length;
-            }
-            return new TextDecoder('utf-8').decode(merged);
           } catch (e) {
             // try next format
           }
