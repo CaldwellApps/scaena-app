@@ -354,6 +354,11 @@
       align-items: center;
       gap: 3px;
     }
+    .rating-pill.user-rating {
+      border-color: rgba(var(--accent-rgb), 0.45);
+      background: rgba(18, 24, 22, 0.95);
+      color: var(--accent);
+    }
 
     .card-body {
       padding: 12px;
@@ -791,6 +796,7 @@
       
       const metaParts = [];
       if (item.y) metaParts.push(item.y);
+      if (item.ur) metaParts.push(`★ ${item.ur}/10 (My Rating)`);
       if (item.r) metaParts.push(`★ ${item.r.toFixed(1)}`);
       document.getElementById('modalInfoMeta').textContent = metaParts.join(' • ');
 
@@ -913,9 +919,16 @@
         if (!posterUrl) fallback.style.display = 'flex';
         posterWrap.appendChild(fallback);
 
-        if (item.r) {
+        if (item.ur) {
+          const ratingPill = document.createElement('div');
+          ratingPill.className = 'rating-pill user-rating';
+          ratingPill.title = 'Personal Rating';
+          ratingPill.innerHTML = `<span>★</span><span>${item.ur}/10</span>`;
+          posterWrap.appendChild(ratingPill);
+        } else if (item.r) {
           const ratingPill = document.createElement('div');
           ratingPill.className = 'rating-pill';
+          ratingPill.title = 'Community Rating';
           ratingPill.innerHTML = `<span>★</span><span>${item.r.toFixed(1)}</span>`;
           posterWrap.appendChild(ratingPill);
         }
@@ -976,7 +989,7 @@
       } else if (sortMode === 'titleDesc') {
         filtered.sort((a, b) => (b.t || '').localeCompare(a.t || ''));
       } else if (sortMode === 'ratingDesc') {
-        filtered.sort((a, b) => (b.r || 0) - (a.r || 0));
+        filtered.sort((a, b) => ((b.ur || b.r || 0) - (a.ur || a.r || 0)));
       } else if (sortMode === 'yearDesc') {
         filtered.sort((a, b) => (b.y || 0) - (a.y || 0));
       } else if (sortMode === 'yearAsc') {
