@@ -381,6 +381,7 @@
       display: inline-flex;
       align-items: center;
       gap: 3px;
+      white-space: nowrap;
     }
     .card-ratings-row .star-imdb {
       color: #f5c518;
@@ -533,7 +534,40 @@
       font-weight: 700;
       line-height: 1.2;
     }
-    .modal-info-meta { font-size: 0.88rem; color: var(--text-secondary); }
+    .modal-info-year {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .modal-info-ratings {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .modal-info-ratings .rating-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .modal-info-ratings .star-imdb {
+      color: #f5c518;
+    }
+    .modal-info-ratings .star-simkl {
+      color: var(--accent);
+    }
+    .modal-info-ratings .star-user {
+      color: var(--accent);
+    }
+    .modal-info-ratings .rating-source {
+      color: var(--text-secondary);
+      font-size: 0.74rem;
+      font-weight: 500;
+    }
 
     .modal-actions {
       padding: 16px 20px;
@@ -739,8 +773,9 @@
         <img src="" alt="" class="modal-poster" id="modalPoster">
         <div class="modal-info">
           <div class="modal-info-title" id="modalInfoTitle">Title</div>
-          <div class="modal-info-meta" id="modalInfoMeta">Year • Rating</div>
-          <div id="modalProgressWrap" style="margin-top: 4px;"></div>
+          <div class="modal-info-year" id="modalInfoYear">Year</div>
+          <div class="modal-info-ratings" id="modalInfoRatings"></div>
+          <div id="modalProgressWrap"></div>
         </div>
       </div>
       <div class="modal-actions">
@@ -841,17 +876,47 @@
       document.getElementById('modalTitle').textContent = item.t;
       document.getElementById('modalInfoTitle').textContent = item.t;
       
-      const metaParts = [];
       const isMovie = (listType === 'movie' || item.type === 'movie');
+      const yearEl = document.getElementById('modalInfoYear');
       if (isMovie && item.rd) {
-        metaParts.push(formatDate(item.rd));
+        yearEl.textContent = formatDate(item.rd);
+        yearEl.style.display = 'block';
       } else if (item.y) {
-        metaParts.push(item.y);
+        yearEl.textContent = item.y;
+        yearEl.style.display = 'block';
+      } else {
+        yearEl.style.display = 'none';
       }
-      if (item.ur) metaParts.push(`★ ${item.ur}/10 (My Rating)`);
-      if (item.ir) metaParts.push(`★ ${Number(item.ir).toFixed(1)} IMDb`);
-      if (item.r) metaParts.push(`★ ${Number(item.r).toFixed(1)} Simkl`);
-      document.getElementById('modalInfoMeta').textContent = metaParts.join(' • ');
+
+      const ratingsEl = document.getElementById('modalInfoRatings');
+      ratingsEl.innerHTML = '';
+      let hasModalRating = false;
+
+      if (item.ur) {
+        const span = document.createElement('span');
+        span.className = 'rating-item';
+        span.innerHTML = `<span class="star-user">★</span> <span>${item.ur}/10</span> <span class="rating-source">My Rating</span>`;
+        ratingsEl.appendChild(span);
+        hasModalRating = true;
+      }
+
+      if (item.ir) {
+        const span = document.createElement('span');
+        span.className = 'rating-item';
+        span.innerHTML = `<span class="star-imdb">★</span> <span>${Number(item.ir).toFixed(1)}</span> <span class="rating-source">IMDb</span>`;
+        ratingsEl.appendChild(span);
+        hasModalRating = true;
+      }
+
+      if (item.r) {
+        const span = document.createElement('span');
+        span.className = 'rating-item';
+        span.innerHTML = `<span class="star-simkl">★</span> <span>${Number(item.r).toFixed(1)}</span> <span class="rating-source">Simkl</span>`;
+        ratingsEl.appendChild(span);
+        hasModalRating = true;
+      }
+
+      ratingsEl.style.display = hasModalRating ? 'flex' : 'none';
 
       const posterUrl = resolvePosterUrl(item.p);
       const modalPoster = document.getElementById('modalPoster');
