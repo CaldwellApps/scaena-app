@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Scaena • Curated Watchlist</title>
   <meta name="description" content="View shared movie, TV show, and anime lists curated in Scaena.">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 
   <!-- Favicon & Apple Touch Icon (Compact iMessage Preview) -->
   <link rel="icon" type="image/png" sizes="32x32" href="https://caldwellappsco.com/logo.png">
@@ -996,6 +999,15 @@
 
     // --- Bootstrap & Hash Extraction ---
     async function init() {
+      // Defensive recovery if URL was mangled with bplist00
+      if (window.location.href.includes('bplist00')) {
+        const cleanUrlMatch = window.location.href.match(/https?:\/\/[^\s]+/);
+        if (cleanUrlMatch && cleanUrlMatch[0] !== window.location.href) {
+          window.location.replace(cleanUrlMatch[0]);
+          return;
+        }
+      }
+
       // Immediate query param title resolution for instant render
       const urlParams = new URLSearchParams(window.location.search);
       const queryTitle = urlParams.get('title');
