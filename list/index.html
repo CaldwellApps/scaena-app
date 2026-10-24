@@ -365,7 +365,33 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      margin-top: auto;
+    }
+
+    .card-ratings-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      line-height: 1.2;
+    }
+    .card-ratings-row .rating-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .card-ratings-row .star-imdb {
+      color: #f5c518;
+    }
+    .card-ratings-row .star-simkl {
+      color: var(--accent);
+    }
+    .card-ratings-row .rating-source {
+      opacity: 0.75;
+      font-size: 0.68rem;
+      font-weight: 500;
     }
 
     /* Progress Badges */
@@ -374,7 +400,7 @@
       flex-wrap: wrap;
       gap: 5px;
       margin-top: auto;
-      padding-top: 6px;
+      padding-top: 4px;
     }
     .progress-pill {
       display: inline-flex;
@@ -403,13 +429,21 @@
       color: #3498db;
       border-color: rgba(52, 152, 219, 0.3);
     }
+    #modalProgressWrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 6px;
+      width: 100%;
+    }
     .modal-progress-bar-wrap {
       width: 100%;
       height: 6px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 3px;
       overflow: hidden;
-      margin-top: 4px;
+      margin: 2px 0 4px 0;
     }
     .modal-progress-bar-fill {
       height: 100%;
@@ -962,18 +996,6 @@
           ratingPill.title = 'Personal Rating';
           ratingPill.innerHTML = `<span>★</span><span>${item.ur}/10</span>`;
           posterWrap.appendChild(ratingPill);
-        } else if (item.ir) {
-          const ratingPill = document.createElement('div');
-          ratingPill.className = 'rating-pill';
-          ratingPill.title = 'IMDb Rating';
-          ratingPill.innerHTML = `<span>★</span><span>${Number(item.ir).toFixed(1)}</span>`;
-          posterWrap.appendChild(ratingPill);
-        } else if (item.r) {
-          const ratingPill = document.createElement('div');
-          ratingPill.className = 'rating-pill';
-          ratingPill.title = 'Simkl Rating';
-          ratingPill.innerHTML = `<span>★</span><span>${Number(item.r).toFixed(1)}</span>`;
-          posterWrap.appendChild(ratingPill);
         }
 
         card.appendChild(posterWrap);
@@ -994,6 +1016,31 @@
           subtitle.textContent = item.y ? `${item.y}` : '';
         }
         cardBody.appendChild(subtitle);
+
+        // Ratings row: IMDb and Simkl ratings
+        const ratingsRow = document.createElement('div');
+        ratingsRow.className = 'card-ratings-row';
+        let hasRating = false;
+
+        if (item.ir) {
+          const itemEl = document.createElement('span');
+          itemEl.className = 'rating-item';
+          itemEl.innerHTML = `<span class="star-imdb">★</span><span>${Number(item.ir).toFixed(1)}</span><span class="rating-source">IMDb</span>`;
+          ratingsRow.appendChild(itemEl);
+          hasRating = true;
+        }
+
+        if (item.r) {
+          const itemEl = document.createElement('span');
+          itemEl.className = 'rating-item';
+          itemEl.innerHTML = `<span class="star-simkl">★</span><span>${Number(item.r).toFixed(1)}</span><span class="rating-source">Simkl</span>`;
+          ratingsRow.appendChild(itemEl);
+          hasRating = true;
+        }
+
+        if (hasRating) {
+          cardBody.appendChild(ratingsRow);
+        }
 
         // Badges: Watch Progress & Up Next (for non-movies)
         if (!isMovie && item.type !== 'movie') {
