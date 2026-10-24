@@ -1022,7 +1022,12 @@
       }
 
       try {
-        const rawBytes = base64UrlToUint8Array(match[1]);
+        let rawData = match[1];
+        const cleanMatch = rawData.match(/^[A-Za-z0-9_-]+/);
+        if (cleanMatch) {
+          rawData = cleanMatch[0];
+        }
+        const rawBytes = base64UrlToUint8Array(rawData);
         const jsonStr = await decompressZlib(rawBytes);
         const payload = JSON.parse(jsonStr);
 
