@@ -1187,14 +1187,27 @@
     document.getElementById('sortSelect').addEventListener('change', updateFilteredItems);
 
     // --- CloudKit Revocation Verification ---
+    function enforceRevokedState() {
+      document.title = 'Revoked List • Scaena';
+      const listTitleEl = document.getElementById('listTitle');
+      if (listTitleEl) listTitleEl.textContent = 'Revoked List';
+      const listView = document.getElementById('listView');
+      if (listView) listView.style.display = 'none';
+      const promoState = document.getElementById('promoState');
+      if (promoState) promoState.style.display = 'none';
+      const revokedState = document.getElementById('revokedState');
+      if (revokedState) revokedState.style.display = 'block';
+    }
+
     async function checkIsRevoked(shareId) {
       if (!shareId) return false;
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 2500);
+      const timeoutId = setTimeout(() => controller.abort(), 6000);
       try {
+        // Use text/plain;charset=UTF-8 to ensure CORS-safelisted simple request (avoids browser OPTIONS preflight)
         const response = await fetch('https://api.apple-cloudkit.com/database/1/iCloud.caldwellapps.scaena/production/public/records/lookup', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
           body: JSON.stringify({
             records: [{ recordName: shareId }]
           }),
@@ -1203,18 +1216,42 @@
         clearTimeout(timeoutId);
         if (!response.ok) return false;
         const data = await response.json();
+        let isRevoked = false;
         if (data && Array.isArray(data.records) && data.records.length > 0) {
           const rec = data.records[0];
           if (rec && rec.recordName === shareId && !rec.reason) {
-            return true;
+            isRevoked = true;
           }
         }
-        return false;
+        console.log('[Scaena] Share revocation status:', { shareId, isRevoked });
+        return isRevoked;
       } catch (e) {
         clearTimeout(timeoutId);
+        console.warn('[Scaena] Share revocation check error:', e);
         return false;
       }
     }
+
+    async function verifyCurrentRevocation() {
+      if (currentPayload && currentPayload.shareId) {
+        const isRevoked = await checkIsRevoked(currentPayload.shareId);
+        if (isRevoked) {
+          enforceRevokedState();
+        }
+      }
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        verifyCurrentRevocation();
+      }
+    });
+
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted) {
+        verifyCurrentRevocation();
+      }
+    });
 
     // --- Bootstrap & Hash Extraction ---
     async function init() {
@@ -1262,9 +1299,7 @@
         if (payload.shareId) {
           const isRevoked = await checkIsRevoked(payload.shareId);
           if (isRevoked) {
-            const listTitleEl = document.getElementById('listTitle');
-            if (listTitleEl) listTitleEl.textContent = 'Revoked List';
-            document.getElementById('revokedState').style.display = 'block';
+            enforceRevokedState();
             return;
           }
         }
