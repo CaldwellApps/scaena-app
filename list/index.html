@@ -6,6 +6,7 @@
   <title>Scaena • Curated Watchlist</title>
   <meta name="description" content="View shared movie, TV show, and anime lists curated in Scaena.">
   <meta name="apple-itunes-app" content="app-id=6787125515">
+  <meta name="referrer" content="no-referrer">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -720,6 +721,18 @@
       </a>
     </div>
 
+    <!-- Revoked Snapshot Tombstone State -->
+    <div id="revokedState" class="promo-wrap" style="display: none;">
+      <div style="font-size: 3.5rem; line-height: 1; margin-bottom: 20px;">🔒</div>
+      <h1 class="promo-title">List Snapshot Revoked</h1>
+      <p class="promo-desc">
+        The creator of this shared list has revoked access to this link. It is no longer accessible.
+      </p>
+      <a href="https://apps.apple.com/app/id6787125515" target="_blank" rel="noopener" class="app-store-badge" title="Download Scaena on the App Store">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height: 48px;">
+      </a>
+    </div>
+
     <!-- Active List View -->
     <div id="listView" style="display: none;">
       <div class="list-header">
@@ -1173,6 +1186,36 @@
     document.getElementById('searchInput').addEventListener('input', updateFilteredItems);
     document.getElementById('sortSelect').addEventListener('change', updateFilteredItems);
 
+    // --- CloudKit Revocation Verification ---
+    async function checkIsRevoked(shareId) {
+      if (!shareId) return false;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2500);
+      try {
+        const response = await fetch('https://api.apple-cloudkit.com/database/1/iCloud.caldwellapps.scaena/production/public/records/lookup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            records: [{ recordName: shareId }]
+          }),
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        if (!response.ok) return false;
+        const data = await response.json();
+        if (data && Array.isArray(data.records) && data.records.length > 0) {
+          const rec = data.records[0];
+          if (rec && rec.recordName === shareId && !rec.reason) {
+            return true;
+          }
+        }
+        return false;
+      } catch (e) {
+        clearTimeout(timeoutId);
+        return false;
+      }
+    }
+
     // --- Bootstrap & Hash Extraction ---
     async function init() {
       // Defensive recovery if URL was mangled with bplist00
@@ -1213,6 +1256,17 @@
 
         if (!payload || !payload.items) {
           throw new Error('Invalid payload schema');
+        }
+
+        // Verify share revocation status if shareId is present
+        if (payload.shareId) {
+          const isRevoked = await checkIsRevoked(payload.shareId);
+          if (isRevoked) {
+            const listTitleEl = document.getElementById('listTitle');
+            if (listTitleEl) listTitleEl.textContent = 'Revoked List';
+            document.getElementById('revokedState').style.display = 'block';
+            return;
+          }
         }
 
         currentPayload = payload;
