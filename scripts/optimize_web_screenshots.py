@@ -20,7 +20,7 @@ def optimize_image(src_path, out_path_webp, out_path_png, target_height):
 def main():
     print("=== Optimizing Web Screenshots (Retina 2x) ===")
     
-    # 1. iPhone 18 Pro (Height: 1100px for 2x Retina sharpness)
+    # 1. iPhone (Height: 2000px for ultra-sharp Retina display and lightbox zoom)
     iphone_src = "Screenshots/1.5.1/AppStoreBanners/iphone_6.3inch"
     iphone_tasks = [
         ("01_home.png", "home"),
@@ -36,9 +36,9 @@ def main():
         src = os.path.join(iphone_src, src_file)
         webp = f"docs/screenshots/iphone/{name}.webp"
         png = f"docs/screenshots/iphone/{name}.png"
-        optimize_image(src, webp, png, target_height=1100)
+        optimize_image(src, webp, png, target_height=2000)
         
-    # 2. iPad Pro 13" (Height: 1100px for 2x Retina sharpness)
+    # 2. iPad (Height: 2000px for ultra-sharp Retina display and lightbox zoom)
     ipad_src = "Screenshots/1.5.1/AppStoreBanners/ipad_13inch"
     ipad_tasks = [
         ("01_home.png", "home"),
@@ -53,25 +53,25 @@ def main():
         src = os.path.join(ipad_src, src_file)
         webp = f"docs/screenshots/ipad/{name}.webp"
         png = f"docs/screenshots/ipad/{name}.png"
-        optimize_image(src, webp, png, target_height=1100)
+        optimize_image(src, webp, png, target_height=2000)
         
     # 3. iPhone Duo
     duo_inner_src = "Screenshots/1.5.3/AppStoreBanners/iphoneduo_inner_landscape"
     duo_outer_src = "Screenshots/1.5.3/AppStoreBanners/iphoneduo_outer_portrait"
     duo_tasks = [
-        (os.path.join(duo_inner_src, "01_home.png"), "inner_home", 950),
-        (os.path.join(duo_inner_src, "02_watchlist_hero.png"), "inner_watchlist", 950),
-        (os.path.join(duo_inner_src, "03_show_detail.png"), "inner_show_detail", 950),
-        (os.path.join(duo_inner_src, "05_calendar.png"), "inner_calendar", 950),
-        (os.path.join(duo_outer_src, "01_home_outer.png"), "outer_home", 1100),
-        (os.path.join(duo_outer_src, "02_watchlist_hero_outer.png"), "outer_watchlist", 1100),
+        (os.path.join(duo_inner_src, "01_home.png"), "inner_home", 1400),
+        (os.path.join(duo_inner_src, "02_watchlist_hero.png"), "inner_watchlist", 1400),
+        (os.path.join(duo_inner_src, "03_show_detail.png"), "inner_show_detail", 1400),
+        (os.path.join(duo_inner_src, "05_calendar.png"), "inner_calendar", 1400),
+        (os.path.join(duo_outer_src, "01_home_outer.png"), "outer_home", 2000),
+        (os.path.join(duo_outer_src, "02_watchlist_hero_outer.png"), "outer_watchlist", 2000),
     ]
     for src, name, h in duo_tasks:
         webp = f"docs/screenshots/duo/{name}.webp"
         png = f"docs/screenshots/duo/{name}.png"
         optimize_image(src, webp, png, target_height=h)
 
-    print("=== All Web Screenshots Optimized Successfully (Retina 2x) ===")
+    print("=== All Web Screenshots Optimized Successfully (Ultra-Retina 2000px) ===")
 
 if __name__ == "__main__":
     main()

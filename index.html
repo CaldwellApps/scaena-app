@@ -358,196 +358,344 @@
             margin: 0 auto;
         }
 
-        /* App Showcase Section */
+        /* Feature-by-Feature Showcase Section */
         .showcase {
-            padding: 30px 0 70px;
+            padding: 40px 0 90px;
             border-bottom: 1px solid rgba(43, 54, 68, 0.4);
             margin-bottom: 70px;
         }
 
         .showcase .section-header {
-            margin-bottom: 32px;
+            margin-bottom: 56px;
         }
 
-        .device-tabs {
+        .feature-showcase-list {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            gap: 72px;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            align-items: center;
+            gap: 56px;
+            background: linear-gradient(135deg, rgba(26, 34, 31, 0.5) 0%, rgba(18, 24, 22, 0.6) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 48px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-row:hover {
+            border-color: rgba(0, 255, 136, 0.3);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 136, 0.05);
+        }
+
+        .feature-row.reverse .feature-text {
+            order: 2;
+        }
+
+        .feature-row.reverse .feature-media {
+            order: 1;
+        }
+
+        .feature-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-mint);
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.25);
+            padding: 5px 14px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+        }
+
+        .feature-text h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+            margin-bottom: 14px;
+        }
+
+        .feature-text p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .feature-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .feature-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .feature-bullets li svg {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            color: var(--accent-mint);
+            margin-top: 2px;
+        }
+
+        /* Inline Device Switcher */
+        .device-switcher-wrap {
+            display: flex;
+            align-items: center;
             gap: 12px;
-            margin-bottom: 36px;
             flex-wrap: wrap;
         }
 
-        .device-tab {
-            background-color: var(--card-dark);
+        .device-switcher-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .device-switcher {
+            display: inline-flex;
+            background: rgba(12, 17, 15, 0.85);
             border: 1px solid var(--border-color);
+            border-radius: 999px;
+            padding: 4px;
+            gap: 4px;
+        }
+
+        .device-pill {
+            background: transparent;
+            border: none;
             color: var(--text-muted);
             font-family: 'Inter', sans-serif;
             font-weight: 600;
-            font-size: 14px;
-            padding: 10px 22px;
+            font-size: 13px;
+            padding: 6px 16px;
             border-radius: 999px;
             cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .device-tab:hover {
+        .device-pill:hover {
             color: var(--text-primary);
-            border-color: rgba(0, 255, 136, 0.3);
-            background-color: rgba(26, 34, 31, 0.9);
         }
 
-        .device-tab.active {
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 210, 196, 0.1));
-            color: var(--accent-mint);
-            border-color: var(--accent-mint);
-            box-shadow: 0 0 20px var(--accent-glow);
+        .device-pill.active {
+            background: var(--accent-mint);
+            color: #0c120e;
+            font-weight: 700;
+            box-shadow: 0 0 14px var(--accent-glow);
         }
 
-        .device-tab:focus-visible {
-            outline: 2px solid var(--accent-mint);
-            outline-offset: 3px;
-        }
-
-        .gallery-wrapper {
+        /* Media Frame */
+        .feature-media {
             position: relative;
-        }
-
-        .gallery-panel {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.35s ease;
-        }
-
-        .gallery-panel.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .gallery-track {
             display: flex;
-            gap: 24px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding: 16px 8px 30px;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(0, 255, 136, 0.3) transparent;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .gallery-track::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .gallery-track::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px;
-        }
-
-        .gallery-track::-webkit-scrollbar-thumb {
-            background: rgba(0, 255, 136, 0.25);
-            border-radius: 10px;
-        }
-
-        .gallery-track::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 255, 136, 0.5);
-        }
-
-        .gallery-item {
-            flex-shrink: 0;
-            scroll-snap-align: center;
-            background: rgba(26, 34, 31, 0.5);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 16px 16px 20px;
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            backdrop-filter: blur(12px);
+            justify-content: center;
+            min-height: 480px;
+            background: rgba(12, 17, 15, 0.5);
+            border: 1px solid rgba(43, 54, 68, 0.5);
+            border-radius: 20px;
+            padding: 24px;
+            cursor: zoom-in;
+            overflow: hidden;
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-6px);
+        .feature-media:hover {
+            transform: translateY(-4px);
             border-color: rgba(0, 255, 136, 0.4);
             box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow);
         }
 
-        .gallery-item picture img {
-            border-radius: 14px;
+        .device-variant {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            transform: scale(0.98);
+        }
+
+        .device-variant.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .device-variant picture {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .device-variant picture img {
+            border-radius: 12px;
             display: block;
             height: auto;
-            max-height: 480px;
+            max-height: 520px;
             width: auto;
+            max-width: 100%;
             object-fit: contain;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
         }
 
-        .item-caption {
+        .media-expand-hint {
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+            background: rgba(12, 18, 15, 0.85);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 999px;
+            padding: 5px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-mint);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            backdrop-filter: blur(8px);
+            pointer-events: none;
+            transition: all 0.2s ease;
+        }
+
+        .feature-media:hover .media-expand-hint {
+            background: rgba(0, 255, 136, 0.15);
+            border-color: var(--accent-mint);
+        }
+
+        /* Fullscreen Lightbox Modal */
+        .lightbox-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(6, 10, 8, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .lightbox-modal.open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 92vw;
+            max-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: scale(0.96);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox-modal.open .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-img {
+            max-height: 82vh;
+            max-width: 90vw;
+            object-fit: contain;
+            border-radius: 14px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 35px var(--accent-glow);
+        }
+
+        .lightbox-caption {
             margin-top: 14px;
             text-align: center;
-            max-width: 260px;
-        }
-
-        .item-title {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 15px;
             color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
         }
 
-        .item-desc {
-            font-size: 12px;
+        .lightbox-caption span {
             color: var(--text-muted);
-            margin-top: 3px;
+            font-weight: 400;
         }
 
-        .gallery-nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-60%);
+        .lightbox-close {
+            position: fixed;
+            top: 24px;
+            right: 28px;
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: rgba(18, 24, 22, 0.9);
+            background: rgba(26, 34, 31, 0.85);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            font-size: 20px;
+            font-size: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
             transition: all 0.2s ease;
-            z-index: 10;
+            z-index: 100001;
         }
 
-        .gallery-nav-btn:hover {
+        .lightbox-close:hover {
             border-color: var(--accent-mint);
             color: var(--accent-mint);
-            box-shadow: 0 0 15px var(--accent-glow);
+            transform: rotate(90deg);
         }
 
-        .gallery-nav-prev {
-            left: -16px;
-        }
-
-        .gallery-nav-next {
-            right: -16px;
-        }
-
-        @media (max-width: 768px) {
-            .gallery-nav-btn {
-                display: none;
+        @media (max-width: 960px) {
+            .feature-row {
+                grid-template-columns: 1fr;
+                gap: 36px;
+                padding: 32px 24px;
             }
-            .gallery-item picture img {
-                max-height: 380px;
+            .feature-row.reverse .feature-text {
+                order: 1;
+            }
+            .feature-row.reverse .feature-media {
+                order: 2;
+            }
+            .feature-media {
+                min-height: 380px;
+                padding: 16px;
+            }
+            .device-variant picture img {
+                max-height: 400px;
             }
             .showcase {
-                padding: 10px 0 40px;
-                margin-bottom: 40px;
+                padding: 20px 0 50px;
+                margin-bottom: 50px;
             }
         }
 
@@ -921,276 +1069,377 @@
         <section class="container showcase">
             <div class="section-header">
                 <h2>Crafted for Every Screen</h2>
-                <p>Explore native, high-performance interfaces tailored for iPhone 18 Pro, iPad Pro, and the dual-screen iPhone Duo.</p>
+                <p>Explore native, high-performance interfaces tailored for iPhone, iPad, and iPhone Duo.</p>
             </div>
 
-            <!-- Device Selector Tabs -->
-            <div class="device-tabs" role="tablist" aria-label="Device showcases">
-                <button class="device-tab active" role="tab" id="tab-iphone" aria-selected="true" aria-controls="panel-iphone" onclick="switchDevice('iphone')">
-                    iPhone 18 Pro
-                </button>
-                <button class="device-tab" role="tab" id="tab-ipad" aria-selected="false" aria-controls="panel-ipad" onclick="switchDevice('ipad')">
-                    iPad Pro 13&Prime;
-                </button>
-                <button class="device-tab" role="tab" id="tab-duo" aria-selected="false" aria-controls="panel-duo" onclick="switchDevice('duo')">
-                    iPhone Duo
-                </button>
-            </div>
-
-            <div class="gallery-wrapper">
-                <!-- Panel 1: iPhone 18 Pro -->
-                <div class="gallery-panel active" id="panel-iphone" role="tabpanel" aria-labelledby="tab-iphone">
-                    <button class="gallery-nav-btn gallery-nav-prev" onclick="scrollGallery('panel-iphone', -1)" aria-label="Previous screenshot">‹</button>
-                    <div class="gallery-track">
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/iphone/home.webp" type="image/webp">
-                                <img src="screenshots/iphone/home.png" alt="Scaena All-in-One Dashboard on iPhone" loading="lazy" width="285" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">All-in-One Dashboard</div>
-                                <div class="item-desc">Up Next, stats, and recently watched in one view</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/iphone/watchlist.webp" type="image/webp">
-                                <img src="screenshots/iphone/watchlist.png" alt="Unified Watchlist Tracking on iPhone" loading="lazy" width="285" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Watchlist Tracking</div>
-                                <div class="item-desc">Filter movies, TV series, anime, and progress</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/iphone/show_detail.webp" type="image/webp">
-                                <img src="screenshots/iphone/show_detail.png" alt="Rich TV Series Details on iPhone" loading="lazy" width="285" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Rich TV Details</div>
-                                <div class="item-desc">Episode guides, streaming links, and spoilers hidden</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/iphone/movie_detail.webp" type="image/webp">
-                                <img src="screenshots/iphone/movie_detail.png" alt="Deep Movie Details on iPhone" loading="lazy" width="285" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Deep Movie Details</div>
-                                <div class="item-desc">Cast, ratings, trailers, and rewatch tracking</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/iphone/calendar.webp" type="image/webp">
-                                <img src="screenshots/iphone/calendar.png" alt="Airing Schedule Calendar on iPhone" loading="lazy" width="285" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Release Calendar</div>
-                                <div class="item-desc">Never miss an episode air date or theatrical debut</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/iphone/custom_lists.webp" type="image/webp">
-                                <img src="screenshots/iphone/custom_lists.png" alt="Custom Lists & Smart Filters on iPhone" loading="lazy" width="285" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Custom Lists</div>
-                                <div class="item-desc">Organize collections with smart rules and iCloud sync</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/iphone/themes.webp" type="image/webp">
-                                <img src="screenshots/iphone/themes.png" alt="Pro Themes on iPhone" loading="lazy" width="285" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Pro Themes</div>
-                                <div class="item-desc">Arctic, Charcoal, Dark Blue, Plum, and custom accents</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/iphone/widgets.webp" type="image/webp">
-                                <img src="screenshots/iphone/widgets.png" alt="Interactive Widgets on iPhone" loading="lazy" width="285" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Glanceable Widgets</div>
-                                <div class="item-desc">Home Screen and Lock Screen episode schedules</div>
+            <div class="feature-showcase-list">
+                <!-- 1. All-in-One Dashboard -->
+                <div class="feature-row" id="feature-home">
+                    <div class="feature-text">
+                        <span class="feature-tag">Personal Hub</span>
+                        <h3>All-in-One Dashboard</h3>
+                        <p>Your complete entertainment command center. View your Up Next queue, track continuing seasons, and inspect your weekly media statistics in a single glance.</p>
+                        <ul class="feature-bullets">
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Up Next queue with instant play and episode logging</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Weekly time-watched insights and personalized breakdown</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Seamless continuation across all your Apple devices</span>
+                            </li>
+                        </ul>
+                        <div class="device-switcher-wrap">
+                            <span class="device-switcher-label">View on:</span>
+                            <div class="device-switcher" role="group" aria-label="Select device for Dashboard">
+                                <button class="device-pill active" data-device="iphone" onclick="setFeatureDevice('home', 'iphone')">iPhone</button>
+                                <button class="device-pill" data-device="ipad" onclick="setFeatureDevice('home', 'ipad')">iPad</button>
+                                <button class="device-pill" data-device="duo" onclick="setFeatureDevice('home', 'duo')">iPhone Duo</button>
                             </div>
                         </div>
                     </div>
-                    <button class="gallery-nav-btn gallery-nav-next" onclick="scrollGallery('panel-iphone', 1)" aria-label="Next screenshot">›</button>
+                    <div class="feature-media" onclick="openActiveVariantLightbox('feature-home')">
+                        <div class="device-variant active" data-device="iphone">
+                            <picture>
+                                <source srcset="screenshots/iphone/home.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/iphone/home.png?v=1.5.5r3" alt="Scaena All-in-One Dashboard on iPhone" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="ipad">
+                            <picture>
+                                <source srcset="screenshots/ipad/home.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/ipad/home.png?v=1.5.5r3" alt="Scaena Expansive Dashboard on iPad" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="duo">
+                            <picture>
+                                <source srcset="screenshots/duo/inner_home.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/duo/inner_home.png?v=1.5.5r3" alt="Scaena Dual-Screen Dashboard on iPhone Duo" loading="lazy">
+                            </picture>
+                        </div>
+                        <span class="media-expand-hint">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                            Click to expand
+                        </span>
+                    </div>
                 </div>
 
-                <!-- Panel 2: iPad Pro 13" -->
-                <div class="gallery-panel" id="panel-ipad" role="tabpanel" aria-labelledby="tab-ipad">
-                    <button class="gallery-nav-btn gallery-nav-prev" onclick="scrollGallery('panel-ipad', -1)" aria-label="Previous screenshot">‹</button>
-                    <div class="gallery-track">
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/ipad/home.webp" type="image/webp">
-                                <img src="screenshots/ipad/home.png" alt="Scaena Expansive Dashboard on iPad Pro" loading="lazy" width="465" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Expansive Dashboard</div>
-                                <div class="item-desc">Tailored multi-column hub with sidebar navigation</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/ipad/watchlist.webp" type="image/webp">
-                                <img src="screenshots/ipad/watchlist.png" alt="Grid Watchlist on iPad Pro" loading="lazy" width="465" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Watchlist Grid</div>
-                                <div class="item-desc">Rich poster layout optimized for large screens</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/ipad/show_detail.webp" type="image/webp">
-                                <img src="screenshots/ipad/show_detail.png" alt="Comprehensive Show Details on iPad Pro" loading="lazy" width="465" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Full Show Details</div>
-                                <div class="item-desc">Full season breakdown, guest cast, and episode art</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/ipad/movie_detail.webp" type="image/webp">
-                                <img src="screenshots/ipad/movie_detail.png" alt="Deep Movie Details on iPad Pro" loading="lazy" width="465" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Cinematic Movie Views</div>
-                                <div class="item-desc">High-res backdrops, release stats, and ratings</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/ipad/calendar.webp" type="image/webp">
-                                <img src="screenshots/ipad/calendar.png" alt="Airing Calendar on iPad Pro" loading="lazy" width="465" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Full Airing Calendar</div>
-                                <div class="item-desc">Monthly release grid with instant episode tracking</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/ipad/custom_lists.webp" type="image/webp">
-                                <img src="screenshots/ipad/custom_lists.png" alt="Custom Lists on iPad Pro" loading="lazy" width="465" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Custom Lists &amp; Filters</div>
-                                <div class="item-desc">Curate and manage media libraries with ease</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/ipad/themes.webp" type="image/webp">
-                                <img src="screenshots/ipad/themes.png" alt="iPad Pro Themes" loading="lazy" width="465" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Pro Color Themes</div>
-                                <div class="item-desc">Full system accent personalization across iPadOS</div>
+                <!-- 2. Unified Watchlist -->
+                <div class="feature-row reverse" id="feature-watchlist">
+                    <div class="feature-text">
+                        <span class="feature-tag">Library</span>
+                        <h3>Unified Watchlist Tracking</h3>
+                        <p>Organize movies, television series, and anime in one cohesive view. Visual progress meters keep you oriented without giving away spoilers.</p>
+                        <ul class="feature-bullets">
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Clear watch progression with aired vs unaired counts</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Fast multi-criteria filters by media format, status, and service</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Automatic multi-device synchronization via iCloud</span>
+                            </li>
+                        </ul>
+                        <div class="device-switcher-wrap">
+                            <span class="device-switcher-label">View on:</span>
+                            <div class="device-switcher" role="group" aria-label="Select device for Watchlist">
+                                <button class="device-pill active" data-device="iphone" onclick="setFeatureDevice('watchlist', 'iphone')">iPhone</button>
+                                <button class="device-pill" data-device="ipad" onclick="setFeatureDevice('watchlist', 'ipad')">iPad</button>
+                                <button class="device-pill" data-device="duo" onclick="setFeatureDevice('watchlist', 'duo')">iPhone Duo</button>
                             </div>
                         </div>
                     </div>
-                    <button class="gallery-nav-btn gallery-nav-next" onclick="scrollGallery('panel-ipad', 1)" aria-label="Next screenshot">›</button>
+                    <div class="feature-media" onclick="openActiveVariantLightbox('feature-watchlist')">
+                        <div class="device-variant active" data-device="iphone">
+                            <picture>
+                                <source srcset="screenshots/iphone/watchlist.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/iphone/watchlist.png?v=1.5.5r3" alt="Unified Watchlist on iPhone" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="ipad">
+                            <picture>
+                                <source srcset="screenshots/ipad/watchlist.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/ipad/watchlist.png?v=1.5.5r3" alt="Unified Watchlist Grid on iPad" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="duo">
+                            <picture>
+                                <source srcset="screenshots/duo/inner_watchlist.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/duo/inner_watchlist.png?v=1.5.5r3" alt="Expanded Two-Pane Watchlist on iPhone Duo" loading="lazy">
+                            </picture>
+                        </div>
+                        <span class="media-expand-hint">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                            Click to expand
+                        </span>
+                    </div>
                 </div>
 
-                <!-- Panel 3: iPhone Duo -->
-                <div class="gallery-panel" id="panel-duo" role="tabpanel" aria-labelledby="tab-duo">
-                    <button class="gallery-nav-btn gallery-nav-prev" onclick="scrollGallery('panel-duo', -1)" aria-label="Previous screenshot">‹</button>
-                    <div class="gallery-track">
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/duo/inner_home.webp" type="image/webp">
-                                <img src="screenshots/duo/inner_home.png" alt="Scaena Dual-Screen Dashboard on iPhone Duo" loading="lazy" width="739" height="520">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Dual-Screen Dashboard</div>
-                                <div class="item-desc">Expansive unfolded canvas with simultaneous feeds</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/duo/inner_watchlist.webp" type="image/webp">
-                                <img src="screenshots/duo/inner_watchlist.png" alt="Two-Pane Watchlist on iPhone Duo" loading="lazy" width="739" height="520">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Expanded Two-Pane View</div>
-                                <div class="item-desc">Browse collections across both flexible displays</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/duo/inner_show_detail.webp" type="image/webp">
-                                <img src="screenshots/duo/inner_show_detail.png" alt="Side-by-Side Episode Guides on iPhone Duo" loading="lazy" width="739" height="520">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Side-by-Side Metadata</div>
-                                <div class="item-desc">Seasons on left, episode descriptions on right</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/duo/inner_calendar.webp" type="image/webp">
-                                <img src="screenshots/duo/inner_calendar.png" alt="Two-Page Monthly Calendar on iPhone Duo" loading="lazy" width="739" height="520">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Unfolded Airing Calendar</div>
-                                <div class="item-desc">Two-page book layout for tracking future releases</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/duo/outer_home.webp" type="image/webp">
-                                <img src="screenshots/duo/outer_home.png" alt="Quick Glance Outer Display on iPhone Duo" loading="lazy" width="426" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Outer Cover Display</div>
-                                <div class="item-desc">Quick single-handed access when folded on the go</div>
-                            </div>
-                        </div>
-
-                        <div class="gallery-item">
-                            <picture>
-                                <source srcset="screenshots/duo/outer_watchlist.webp" type="image/webp">
-                                <img src="screenshots/duo/outer_watchlist.png" alt="Compact Watchlist on iPhone Duo Outer Display" loading="lazy" width="426" height="620">
-                            </picture>
-                            <div class="item-caption">
-                                <div class="item-title">Compact Watchlist</div>
-                                <div class="item-desc">Rapid episode check-ins on the exterior screen</div>
+                <!-- 3. Release Calendar -->
+                <div class="feature-row" id="feature-calendar">
+                    <div class="feature-text">
+                        <span class="feature-tag">Schedules</span>
+                        <h3>Release &amp; Airing Calendar</h3>
+                        <p>Never wonder when your favorite show airs next. A dedicated monthly and daily calendar keeps you ahead of every season premiere and theatrical debut.</p>
+                        <ul class="feature-bullets">
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Monthly release calendar with color-coded episode drops</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Direct episode mark-as-watched shortcuts right from the schedule</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Automatic time zone alignment for worldwide air dates</span>
+                            </li>
+                        </ul>
+                        <div class="device-switcher-wrap">
+                            <span class="device-switcher-label">View on:</span>
+                            <div class="device-switcher" role="group" aria-label="Select device for Calendar">
+                                <button class="device-pill active" data-device="iphone" onclick="setFeatureDevice('calendar', 'iphone')">iPhone</button>
+                                <button class="device-pill" data-device="ipad" onclick="setFeatureDevice('calendar', 'ipad')">iPad</button>
+                                <button class="device-pill" data-device="duo" onclick="setFeatureDevice('calendar', 'duo')">iPhone Duo</button>
                             </div>
                         </div>
                     </div>
-                    <button class="gallery-nav-btn gallery-nav-next" onclick="scrollGallery('panel-duo', 1)" aria-label="Next screenshot">›</button>
+                    <div class="feature-media" onclick="openActiveVariantLightbox('feature-calendar')">
+                        <div class="device-variant active" data-device="iphone">
+                            <picture>
+                                <source srcset="screenshots/iphone/calendar.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/iphone/calendar.png?v=1.5.5r3" alt="Airing Schedule Calendar on iPhone" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="ipad">
+                            <picture>
+                                <source srcset="screenshots/ipad/calendar.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/ipad/calendar.png?v=1.5.5r3" alt="Full Airing Calendar on iPad" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="duo">
+                            <picture>
+                                <source srcset="screenshots/duo/inner_calendar.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/duo/inner_calendar.png?v=1.5.5r3" alt="Two-Page Monthly Calendar on iPhone Duo" loading="lazy">
+                            </picture>
+                        </div>
+                        <span class="media-expand-hint">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                            Click to expand
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 4. Deep Show & Movie Details -->
+                <div class="feature-row reverse" id="feature-details">
+                    <div class="feature-text">
+                        <span class="feature-tag">Metadata</span>
+                        <h3>Deep Show &amp; Movie Details</h3>
+                        <p>Explore rich cast filmographies, high-resolution backdrops, trailers, ratings, and streaming availability. Automatic spoiler shields protect plot surprises until you've watched.</p>
+                        <ul class="feature-bullets">
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Full season breakdown with guest cast &amp; episode art</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Integrated streaming provider links, trailers, and ratings</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Spoiler protection shields unaired synopses and artwork</span>
+                            </li>
+                        </ul>
+                        <div class="device-switcher-wrap">
+                            <span class="device-switcher-label">View on:</span>
+                            <div class="device-switcher" role="group" aria-label="Select device for Details">
+                                <button class="device-pill active" data-device="iphone" onclick="setFeatureDevice('details', 'iphone')">iPhone</button>
+                                <button class="device-pill" data-device="ipad" onclick="setFeatureDevice('details', 'ipad')">iPad</button>
+                                <button class="device-pill" data-device="duo" onclick="setFeatureDevice('details', 'duo')">iPhone Duo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-media" onclick="openActiveVariantLightbox('feature-details')">
+                        <div class="device-variant active" data-device="iphone">
+                            <picture>
+                                <source srcset="screenshots/iphone/show_detail.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/iphone/show_detail.png?v=1.5.5r3" alt="Rich TV Details on iPhone" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="ipad">
+                            <picture>
+                                <source srcset="screenshots/ipad/show_detail.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/ipad/show_detail.png?v=1.5.5r3" alt="Full Show Details on iPad" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="duo">
+                            <picture>
+                                <source srcset="screenshots/duo/inner_show_detail.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/duo/inner_show_detail.png?v=1.5.5r3" alt="Side-by-Side Episode Guides on iPhone Duo" loading="lazy">
+                            </picture>
+                        </div>
+                        <span class="media-expand-hint">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                            Click to expand
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 5. Custom Lists & Smart Rules -->
+                <div class="feature-row" id="feature-lists">
+                    <div class="feature-text">
+                        <span class="feature-tag">Organization</span>
+                        <h3>Custom Lists &amp; Smart Rules</h3>
+                        <p>Curate your ultimate collections with flexible smart filters. Create themed marathons, track director retrospectives, or group anime seasons with custom rules.</p>
+                        <ul class="feature-bullets">
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Dynamic rule-based filtering by genre, rating, and decade</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Custom tags, reordering, and multi-select batch actions</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Automatic sync across your iPhone, iPad, and Mac</span>
+                            </li>
+                        </ul>
+                        <div class="device-switcher-wrap">
+                            <span class="device-switcher-label">View on:</span>
+                            <div class="device-switcher" role="group" aria-label="Select device for Custom Lists">
+                                <button class="device-pill active" data-device="iphone" onclick="setFeatureDevice('lists', 'iphone')">iPhone</button>
+                                <button class="device-pill" data-device="ipad" onclick="setFeatureDevice('lists', 'ipad')">iPad</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-media" onclick="openActiveVariantLightbox('feature-lists')">
+                        <div class="device-variant active" data-device="iphone">
+                            <picture>
+                                <source srcset="screenshots/iphone/custom_lists.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/iphone/custom_lists.png?v=1.5.5r3" alt="Custom Lists & Smart Filters on iPhone" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="ipad">
+                            <picture>
+                                <source srcset="screenshots/ipad/custom_lists.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/ipad/custom_lists.png?v=1.5.5r3" alt="Custom Lists on iPad" loading="lazy">
+                            </picture>
+                        </div>
+                        <span class="media-expand-hint">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                            Click to expand
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 6. Pro Themes & Accents -->
+                <div class="feature-row reverse" id="feature-themes">
+                    <div class="feature-text">
+                        <span class="feature-tag">Customization</span>
+                        <h3>Pro Accents &amp; Themes</h3>
+                        <p>Personalize Scaena with bespoke theme palettes designed to look stunning on OLED Super Retina and Liquid Retina XDR displays.</p>
+                        <ul class="feature-bullets">
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Arctic, Charcoal, Dark Blue, Plum, and custom accent tints</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Deep true-black OLED mode for maximum power efficiency</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Seamless theme consistency across iPhone and iPad</span>
+                            </li>
+                        </ul>
+                        <div class="device-switcher-wrap">
+                            <span class="device-switcher-label">View on:</span>
+                            <div class="device-switcher" role="group" aria-label="Select device for Themes">
+                                <button class="device-pill active" data-device="iphone" onclick="setFeatureDevice('themes', 'iphone')">iPhone</button>
+                                <button class="device-pill" data-device="ipad" onclick="setFeatureDevice('themes', 'ipad')">iPad</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-media" onclick="openActiveVariantLightbox('feature-themes')">
+                        <div class="device-variant active" data-device="iphone">
+                            <picture>
+                                <source srcset="screenshots/iphone/themes.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/iphone/themes.png?v=1.5.5r3" alt="Pro Themes on iPhone" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="ipad">
+                            <picture>
+                                <source srcset="screenshots/ipad/themes.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/ipad/themes.png?v=1.5.5r3" alt="Pro Color Themes on iPad" loading="lazy">
+                            </picture>
+                        </div>
+                        <span class="media-expand-hint">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                            Click to expand
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 7. Glanceable Widgets -->
+                <div class="feature-row" id="feature-widgets">
+                    <div class="feature-text">
+                        <span class="feature-tag">Glanceable</span>
+                        <h3>Lock Screen &amp; Home Screen Widgets</h3>
+                        <p>Stay on top of today's episodes without opening the app. Interactive widgets bring countdowns, posters, and Up Next shortcuts directly to your Home Screen and StandBy mode.</p>
+                        <ul class="feature-bullets">
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Multiple widget sizes: Small, Medium, Large, and Lock Screen</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Live episode countdowns and one-tap watch logging</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                <span>Configurable filters for today's drops and Up Next queue</span>
+                            </li>
+                        </ul>
+                        <div class="device-switcher-wrap">
+                            <span class="device-switcher-label">View on:</span>
+                            <div class="device-switcher" role="group" aria-label="Select device for Widgets">
+                                <button class="device-pill active" data-device="iphone">iPhone</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-media" onclick="openActiveVariantLightbox('feature-widgets')">
+                        <div class="device-variant active" data-device="iphone">
+                            <picture>
+                                <source srcset="screenshots/iphone/widgets.webp?v=1.5.5r3" type="image/webp">
+                                <img src="screenshots/iphone/widgets.png?v=1.5.5r3" alt="Interactive Widgets on iPhone" loading="lazy">
+                            </picture>
+                        </div>
+                        <span class="media-expand-hint">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                            Click to expand
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Fullscreen Lightbox Modal -->
+        <div class="lightbox-modal" id="screenshot-lightbox" role="dialog" aria-modal="true" aria-label="Expanded screenshot preview" onclick="handleLightboxBackdropClick(event)">
+            <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close enlarged preview">&times;</button>
+            <div class="lightbox-content">
+                <img src="" alt="" class="lightbox-img" id="lightbox-img">
+                <div class="lightbox-caption" id="lightbox-caption"></div>
+            </div>
+        </div>
 
         <!-- Features Grid -->
         <section class="container features">
@@ -1717,28 +1966,74 @@
         window.addEventListener('hashchange', handleRouting);
         window.addEventListener('DOMContentLoaded', handleRouting);
 
-        // Device Showcase Switcher
-        function switchDevice(deviceId) {
-            document.querySelectorAll('.device-tab').forEach(tab => {
-                const isActive = tab.id === 'tab-' + deviceId;
-                tab.classList.toggle('active', isActive);
-                tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        // Feature-by-Feature Inline Device Switcher
+        function setFeatureDevice(featureKey, deviceKey) {
+            const row = document.getElementById('feature-' + featureKey);
+            if (!row) return;
+            
+            // Switch active pill
+            row.querySelectorAll('.device-pill').forEach(pill => {
+                const isActive = pill.dataset.device === deviceKey;
+                pill.classList.toggle('active', isActive);
             });
-            document.querySelectorAll('.gallery-panel').forEach(panel => {
-                const isActive = panel.id === 'panel-' + deviceId;
-                panel.classList.toggle('active', isActive);
+            
+            // Switch active device screenshot variant
+            row.querySelectorAll('.device-variant').forEach(variant => {
+                const isActive = variant.dataset.device === deviceKey;
+                variant.classList.toggle('active', isActive);
             });
         }
 
-        // Horizontal Gallery Smooth Scroll
-        function scrollGallery(panelId, direction) {
-            const panel = document.getElementById(panelId);
-            if (!panel) return;
-            const track = panel.querySelector('.gallery-track');
-            if (!track) return;
-            const scrollAmount = track.clientWidth * 0.75;
-            track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        // Fullscreen Lightbox Modal
+        function openActiveVariantLightbox(featureId) {
+            const row = document.getElementById(featureId);
+            if (!row) return;
+            const activeVariant = row.querySelector('.device-variant.active');
+            if (!activeVariant) return;
+            const img = activeVariant.querySelector('img');
+            if (!img) return;
+            const title = row.querySelector('h3') ? row.querySelector('h3').textContent : 'Scaena Preview';
+            const tag = row.querySelector('.feature-tag') ? row.querySelector('.feature-tag').textContent : '';
+            const deviceKey = activeVariant.dataset.device;
+            const deviceName = deviceKey === 'iphone' ? 'iPhone' : deviceKey === 'ipad' ? 'iPad' : 'iPhone Duo';
+            openLightbox(img.src, `${title} (${deviceName})`, tag);
         }
+
+        function openLightbox(imgSrc, title, tag) {
+            const modal = document.getElementById('screenshot-lightbox');
+            const modalImg = document.getElementById('lightbox-img');
+            const modalCaption = document.getElementById('lightbox-caption');
+            if (!modal || !modalImg) return;
+            
+            modalImg.src = imgSrc;
+            modalImg.alt = title;
+            if (modalCaption) {
+                modalCaption.innerHTML = `<strong>${title}</strong>${tag ? ` &bull; <span>${tag}</span>` : ''}`;
+            }
+            
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('screenshot-lightbox');
+            if (!modal) return;
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function handleLightboxBackdropClick(event) {
+            if (event.target.id === 'screenshot-lightbox' || event.target.classList.contains('lightbox-content')) {
+                closeLightbox();
+            }
+        }
+
+        // Keyboard controls: ESC to dismiss lightbox
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
     </script>
 </body>
 </html>
