@@ -515,7 +515,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 480px;
+            height: 520px;
             background: rgba(12, 17, 15, 0.5);
             border: 1px solid rgba(43, 54, 68, 0.5);
             border-radius: 20px;
@@ -536,6 +536,8 @@
             opacity: 0;
             transition: opacity 0.25s ease, transform 0.25s ease;
             transform: scale(0.98);
+            width: 100%;
+            height: 100%;
         }
 
         .device-variant.active {
@@ -545,6 +547,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
+            height: 100%;
         }
 
         .device-variant picture {
@@ -552,13 +555,14 @@
             justify-content: center;
             align-items: center;
             width: 100%;
+            height: 100%;
         }
 
         .device-variant picture img {
             border-radius: 12px;
             display: block;
             height: auto;
-            max-height: 520px;
+            max-height: 472px;
             width: auto;
             max-width: 100%;
             object-fit: contain;
@@ -687,11 +691,11 @@
                 order: 2;
             }
             .feature-media {
-                min-height: 380px;
+                height: 380px;
                 padding: 16px;
             }
             .device-variant picture img {
-                max-height: 400px;
+                max-height: 348px;
             }
             .showcase {
                 padding: 20px 0 50px;
@@ -1076,7 +1080,7 @@
                 <!-- 1. All-in-One Dashboard -->
                 <div class="feature-row" id="feature-home">
                     <div class="feature-text">
-                        <span class="feature-tag">Personal Hub</span>
+                        <span class="feature-tag">Home</span>
                         <h3>All-in-One Dashboard</h3>
                         <p>Your complete entertainment command center. View your Up Next queue, track continuing seasons, and inspect your weekly media statistics in a single glance.</p>
                         <ul class="feature-bullets">
@@ -1105,20 +1109,20 @@
                     <div class="feature-media" onclick="openActiveVariantLightbox('feature-home')">
                         <div class="device-variant active" data-device="iphone">
                             <picture>
-                                <source srcset="screenshots/iphone/home.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/iphone/home.png?v=1.5.5r3" alt="Scaena All-in-One Dashboard on iPhone" loading="lazy">
+                                <source srcset="screenshots/iphone/home.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/iphone/home.png?v=1.5.5r4" alt="Scaena All-in-One Dashboard on iPhone" loading="lazy">
                             </picture>
                         </div>
                         <div class="device-variant" data-device="ipad">
                             <picture>
-                                <source srcset="screenshots/ipad/home.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/ipad/home.png?v=1.5.5r3" alt="Scaena Expansive Dashboard on iPad" loading="lazy">
+                                <source srcset="screenshots/ipad/home.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/ipad/home.png?v=1.5.5r4" alt="Scaena Expansive Dashboard on iPad" loading="lazy">
                             </picture>
                         </div>
                         <div class="device-variant" data-device="duo">
                             <picture>
-                                <source srcset="screenshots/duo/inner_home.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/duo/inner_home.png?v=1.5.5r3" alt="Scaena Dual-Screen Dashboard on iPhone Duo" loading="lazy">
+                                <source srcset="screenshots/duo/inner_home.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/duo/inner_home.png?v=1.5.5r4" alt="Scaena Dual-Screen Dashboard on iPhone Duo" loading="lazy">
                             </picture>
                         </div>
                         <span class="media-expand-hint">
@@ -1131,7 +1135,7 @@
                 <!-- 2. Unified Watchlist -->
                 <div class="feature-row reverse" id="feature-watchlist">
                     <div class="feature-text">
-                        <span class="feature-tag">Library</span>
+                        <span class="feature-tag">Watchlist</span>
                         <h3>Unified Watchlist Tracking</h3>
                         <p>Organize movies, television series, and anime in one cohesive view. Visual progress meters keep you oriented without giving away spoilers.</p>
                         <ul class="feature-bullets">
@@ -1160,20 +1164,20 @@
                     <div class="feature-media" onclick="openActiveVariantLightbox('feature-watchlist')">
                         <div class="device-variant active" data-device="iphone">
                             <picture>
-                                <source srcset="screenshots/iphone/watchlist.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/iphone/watchlist.png?v=1.5.5r3" alt="Unified Watchlist on iPhone" loading="lazy">
+                                <source srcset="screenshots/iphone/watchlist.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/iphone/watchlist.png?v=1.5.5r4" alt="Unified Watchlist on iPhone" loading="lazy">
                             </picture>
                         </div>
                         <div class="device-variant" data-device="ipad">
                             <picture>
-                                <source srcset="screenshots/ipad/watchlist.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/ipad/watchlist.png?v=1.5.5r3" alt="Unified Watchlist Grid on iPad" loading="lazy">
+                                <source srcset="screenshots/ipad/watchlist.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/ipad/watchlist.png?v=1.5.5r4" alt="Unified Watchlist Grid on iPad" loading="lazy">
                             </picture>
                         </div>
                         <div class="device-variant" data-device="duo">
                             <picture>
-                                <source srcset="screenshots/duo/inner_watchlist.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/duo/inner_watchlist.png?v=1.5.5r3" alt="Expanded Two-Pane Watchlist on iPhone Duo" loading="lazy">
+                                <source srcset="screenshots/duo/inner_watchlist.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/duo/inner_watchlist.png?v=1.5.5r4" alt="Expanded Two-Pane Watchlist on iPhone Duo" loading="lazy">
                             </picture>
                         </div>
                         <span class="media-expand-hint">
@@ -1186,7 +1190,7 @@
                 <!-- 3. Release Calendar -->
                 <div class="feature-row" id="feature-calendar">
                     <div class="feature-text">
-                        <span class="feature-tag">Schedules</span>
+                        <span class="feature-tag">Calendar</span>
                         <h3>Release &amp; Airing Calendar</h3>
                         <p>Never wonder when your favorite show airs next. A dedicated monthly and daily calendar keeps you ahead of every season premiere and theatrical debut.</p>
                         <ul class="feature-bullets">
@@ -1215,20 +1219,20 @@
                     <div class="feature-media" onclick="openActiveVariantLightbox('feature-calendar')">
                         <div class="device-variant active" data-device="iphone">
                             <picture>
-                                <source srcset="screenshots/iphone/calendar.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/iphone/calendar.png?v=1.5.5r3" alt="Airing Schedule Calendar on iPhone" loading="lazy">
+                                <source srcset="screenshots/iphone/calendar.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/iphone/calendar.png?v=1.5.5r4" alt="Airing Schedule Calendar on iPhone" loading="lazy">
                             </picture>
                         </div>
                         <div class="device-variant" data-device="ipad">
                             <picture>
-                                <source srcset="screenshots/ipad/calendar.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/ipad/calendar.png?v=1.5.5r3" alt="Full Airing Calendar on iPad" loading="lazy">
+                                <source srcset="screenshots/ipad/calendar.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/ipad/calendar.png?v=1.5.5r4" alt="Full Airing Calendar on iPad" loading="lazy">
                             </picture>
                         </div>
                         <div class="device-variant" data-device="duo">
                             <picture>
-                                <source srcset="screenshots/duo/inner_calendar.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/duo/inner_calendar.png?v=1.5.5r3" alt="Two-Page Monthly Calendar on iPhone Duo" loading="lazy">
+                                <source srcset="screenshots/duo/inner_calendar.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/duo/inner_calendar.png?v=1.5.5r4" alt="Two-Page Monthly Calendar on iPhone Duo" loading="lazy">
                             </picture>
                         </div>
                         <span class="media-expand-hint">
@@ -1241,7 +1245,7 @@
                 <!-- 4. Deep Show & Movie Details -->
                 <div class="feature-row reverse" id="feature-details">
                     <div class="feature-text">
-                        <span class="feature-tag">Metadata</span>
+                        <span class="feature-tag">Show &amp; Movie Details</span>
                         <h3>Deep Show &amp; Movie Details</h3>
                         <p>Explore rich cast filmographies, high-resolution backdrops, trailers, ratings, and streaming availability. Automatic spoiler shields protect plot surprises until you've watched.</p>
                         <ul class="feature-bullets">
@@ -1270,20 +1274,20 @@
                     <div class="feature-media" onclick="openActiveVariantLightbox('feature-details')">
                         <div class="device-variant active" data-device="iphone">
                             <picture>
-                                <source srcset="screenshots/iphone/show_detail.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/iphone/show_detail.png?v=1.5.5r3" alt="Rich TV Details on iPhone" loading="lazy">
+                                <source srcset="screenshots/iphone/show_detail.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/iphone/show_detail.png?v=1.5.5r4" alt="Rich TV Details on iPhone" loading="lazy">
                             </picture>
                         </div>
                         <div class="device-variant" data-device="ipad">
                             <picture>
-                                <source srcset="screenshots/ipad/show_detail.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/ipad/show_detail.png?v=1.5.5r3" alt="Full Show Details on iPad" loading="lazy">
+                                <source srcset="screenshots/ipad/show_detail.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/ipad/show_detail.png?v=1.5.5r4" alt="Full Show Details on iPad" loading="lazy">
                             </picture>
                         </div>
                         <div class="device-variant" data-device="duo">
                             <picture>
-                                <source srcset="screenshots/duo/inner_show_detail.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/duo/inner_show_detail.png?v=1.5.5r3" alt="Side-by-Side Episode Guides on iPhone Duo" loading="lazy">
+                                <source srcset="screenshots/duo/inner_show_detail.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/duo/inner_show_detail.png?v=1.5.5r4" alt="Side-by-Side Episode Guides on iPhone Duo" loading="lazy">
                             </picture>
                         </div>
                         <span class="media-expand-hint">
@@ -1296,7 +1300,7 @@
                 <!-- 5. Custom Lists & Smart Rules -->
                 <div class="feature-row" id="feature-lists">
                     <div class="feature-text">
-                        <span class="feature-tag">Organization</span>
+                        <span class="feature-tag">Lists</span>
                         <h3>Custom Lists &amp; Smart Rules</h3>
                         <p>Curate your ultimate collections with flexible smart filters. Create themed marathons, track director retrospectives, or group anime seasons with custom rules.</p>
                         <ul class="feature-bullets">
@@ -1318,20 +1322,27 @@
                             <div class="device-switcher" role="group" aria-label="Select device for Custom Lists">
                                 <button class="device-pill active" data-device="iphone" onclick="setFeatureDevice('lists', 'iphone')">iPhone</button>
                                 <button class="device-pill" data-device="ipad" onclick="setFeatureDevice('lists', 'ipad')">iPad</button>
+                                <button class="device-pill" data-device="duo" onclick="setFeatureDevice('lists', 'duo')">iPhone Duo</button>
                             </div>
                         </div>
                     </div>
                     <div class="feature-media" onclick="openActiveVariantLightbox('feature-lists')">
                         <div class="device-variant active" data-device="iphone">
                             <picture>
-                                <source srcset="screenshots/iphone/custom_lists.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/iphone/custom_lists.png?v=1.5.5r3" alt="Custom Lists & Smart Filters on iPhone" loading="lazy">
+                                <source srcset="screenshots/iphone/custom_lists.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/iphone/custom_lists.png?v=1.5.5r4" alt="Custom Lists & Smart Filters on iPhone" loading="lazy">
                             </picture>
                         </div>
                         <div class="device-variant" data-device="ipad">
                             <picture>
-                                <source srcset="screenshots/ipad/custom_lists.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/ipad/custom_lists.png?v=1.5.5r3" alt="Custom Lists on iPad" loading="lazy">
+                                <source srcset="screenshots/ipad/custom_lists.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/ipad/custom_lists.png?v=1.5.5r4" alt="Custom Lists on iPad" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="duo">
+                            <picture>
+                                <source srcset="screenshots/duo/inner_lists.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/duo/inner_lists.png?v=1.5.5r4" alt="Custom Lists & Smart Filters on iPhone Duo" loading="lazy">
                             </picture>
                         </div>
                         <span class="media-expand-hint">
@@ -1344,7 +1355,7 @@
                 <!-- 6. Pro Themes & Accents -->
                 <div class="feature-row reverse" id="feature-themes">
                     <div class="feature-text">
-                        <span class="feature-tag">Customization</span>
+                        <span class="feature-tag">Themes</span>
                         <h3>Pro Accents &amp; Themes</h3>
                         <p>Personalize Scaena with bespoke theme palettes designed to look stunning on OLED Super Retina and Liquid Retina XDR displays.</p>
                         <ul class="feature-bullets">
@@ -1366,20 +1377,27 @@
                             <div class="device-switcher" role="group" aria-label="Select device for Themes">
                                 <button class="device-pill active" data-device="iphone" onclick="setFeatureDevice('themes', 'iphone')">iPhone</button>
                                 <button class="device-pill" data-device="ipad" onclick="setFeatureDevice('themes', 'ipad')">iPad</button>
+                                <button class="device-pill" data-device="duo" onclick="setFeatureDevice('themes', 'duo')">iPhone Duo</button>
                             </div>
                         </div>
                     </div>
                     <div class="feature-media" onclick="openActiveVariantLightbox('feature-themes')">
                         <div class="device-variant active" data-device="iphone">
                             <picture>
-                                <source srcset="screenshots/iphone/themes.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/iphone/themes.png?v=1.5.5r3" alt="Pro Themes on iPhone" loading="lazy">
+                                <source srcset="screenshots/iphone/themes.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/iphone/themes.png?v=1.5.5r4" alt="Pro Themes on iPhone" loading="lazy">
                             </picture>
                         </div>
                         <div class="device-variant" data-device="ipad">
                             <picture>
-                                <source srcset="screenshots/ipad/themes.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/ipad/themes.png?v=1.5.5r3" alt="Pro Color Themes on iPad" loading="lazy">
+                                <source srcset="screenshots/ipad/themes.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/ipad/themes.png?v=1.5.5r4" alt="Pro Color Themes on iPad" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="device-variant" data-device="duo">
+                            <picture>
+                                <source srcset="screenshots/duo/inner_themes.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/duo/inner_themes.png?v=1.5.5r4" alt="Pro Color Themes on iPhone Duo" loading="lazy">
                             </picture>
                         </div>
                         <span class="media-expand-hint">
@@ -1392,7 +1410,7 @@
                 <!-- 7. Glanceable Widgets -->
                 <div class="feature-row" id="feature-widgets">
                     <div class="feature-text">
-                        <span class="feature-tag">Glanceable</span>
+                        <span class="feature-tag">Widgets</span>
                         <h3>Lock Screen &amp; Home Screen Widgets</h3>
                         <p>Stay on top of today's episodes without opening the app. Interactive widgets bring countdowns, posters, and Up Next shortcuts directly to your Home Screen and StandBy mode.</p>
                         <ul class="feature-bullets">
@@ -1419,8 +1437,8 @@
                     <div class="feature-media" onclick="openActiveVariantLightbox('feature-widgets')">
                         <div class="device-variant active" data-device="iphone">
                             <picture>
-                                <source srcset="screenshots/iphone/widgets.webp?v=1.5.5r3" type="image/webp">
-                                <img src="screenshots/iphone/widgets.png?v=1.5.5r3" alt="Interactive Widgets on iPhone" loading="lazy">
+                                <source srcset="screenshots/iphone/widgets.webp?v=1.5.5r4" type="image/webp">
+                                <img src="screenshots/iphone/widgets.png?v=1.5.5r4" alt="Interactive Widgets on iPhone" loading="lazy">
                             </picture>
                         </div>
                         <span class="media-expand-hint">

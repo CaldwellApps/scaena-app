@@ -63,6 +63,8 @@ def main():
         (os.path.join(duo_inner_src, "02_watchlist_hero.png"), "inner_watchlist", 1400),
         (os.path.join(duo_inner_src, "03_show_detail.png"), "inner_show_detail", 1400),
         (os.path.join(duo_inner_src, "05_calendar.png"), "inner_calendar", 1400),
+        (os.path.join(duo_inner_src, "06_lists.png"), "inner_lists", 1400),
+        (os.path.join(duo_inner_src, "08_themes.png"), "inner_themes", 1400),
         (os.path.join(duo_outer_src, "01_home_outer.png"), "outer_home", 2000),
         (os.path.join(duo_outer_src, "02_watchlist_hero_outer.png"), "outer_watchlist", 2000),
     ]
