@@ -16,6 +16,7 @@ Scaena (pronounced "SEE-nuh") combines native Apple design aesthetics with Simkl
 
 ## Platform Support
 - **Supported**: iOS 18.0+, iPadOS 18.0+
+- **Hardware Optimized**: Native layouts for iPhone 18 Pro, iPad Pro 13" (with sidebar navigation), and foldable dual-screen iPhone Duo.
 - **macOS Note**: Not officially supported or optimized for macOS.
 
 ## Pricing Tiers

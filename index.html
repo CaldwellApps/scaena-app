@@ -358,6 +358,199 @@
             margin: 0 auto;
         }
 
+        /* App Showcase Section */
+        .showcase {
+            padding: 30px 0 70px;
+            border-bottom: 1px solid rgba(43, 54, 68, 0.4);
+            margin-bottom: 70px;
+        }
+
+        .showcase .section-header {
+            margin-bottom: 32px;
+        }
+
+        .device-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+        }
+
+        .device-tab {
+            background-color: var(--card-dark);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 22px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .device-tab:hover {
+            color: var(--text-primary);
+            border-color: rgba(0, 255, 136, 0.3);
+            background-color: rgba(26, 34, 31, 0.9);
+        }
+
+        .device-tab.active {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 210, 196, 0.1));
+            color: var(--accent-mint);
+            border-color: var(--accent-mint);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .device-tab:focus-visible {
+            outline: 2px solid var(--accent-mint);
+            outline-offset: 3px;
+        }
+
+        .gallery-wrapper {
+            position: relative;
+        }
+
+        .gallery-panel {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .gallery-panel.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 16px 8px 30px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 255, 136, 0.3) transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-track::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .gallery-track::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+
+        .gallery-track::-webkit-scrollbar-thumb {
+            background: rgba(0, 255, 136, 0.25);
+            border-radius: 10px;
+        }
+
+        .gallery-track::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 255, 136, 0.5);
+        }
+
+        .gallery-item {
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            background: rgba(26, 34, 31, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 16px 16px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 255, 136, 0.4);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow);
+        }
+
+        .gallery-item picture img {
+            border-radius: 14px;
+            display: block;
+            height: auto;
+            max-height: 480px;
+            width: auto;
+            object-fit: contain;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .item-caption {
+            margin-top: 14px;
+            text-align: center;
+            max-width: 260px;
+        }
+
+        .item-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-primary);
+        }
+
+        .item-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        .gallery-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-60%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(18, 24, 22, 0.9);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .gallery-nav-btn:hover {
+            border-color: var(--accent-mint);
+            color: var(--accent-mint);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .gallery-nav-prev {
+            left: -16px;
+        }
+
+        .gallery-nav-next {
+            right: -16px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-nav-btn {
+                display: none;
+            }
+            .gallery-item picture img {
+                max-height: 380px;
+            }
+            .showcase {
+                padding: 10px 0 40px;
+                margin-bottom: 40px;
+            }
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -722,6 +915,281 @@
             <a href="https://apps.apple.com/us/app/scaena-tv-movie-tracker/id6787125515" target="_blank" rel="noopener noreferrer" class="app-store-badge">
                 <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
             </a>
+        </section>
+
+        <!-- App Showcase Section -->
+        <section class="container showcase">
+            <div class="section-header">
+                <h2>Crafted for Every Screen</h2>
+                <p>Explore native, high-performance interfaces tailored for iPhone 18 Pro, iPad Pro, and the dual-screen iPhone Duo.</p>
+            </div>
+
+            <!-- Device Selector Tabs -->
+            <div class="device-tabs" role="tablist" aria-label="Device showcases">
+                <button class="device-tab active" role="tab" id="tab-iphone" aria-selected="true" aria-controls="panel-iphone" onclick="switchDevice('iphone')">
+                    <span>📱</span> iPhone 18 Pro
+                </button>
+                <button class="device-tab" role="tab" id="tab-ipad" aria-selected="false" aria-controls="panel-ipad" onclick="switchDevice('ipad')">
+                    <span>📟</span> iPad Pro 13&Prime;
+                </button>
+                <button class="device-tab" role="tab" id="tab-duo" aria-selected="false" aria-controls="panel-duo" onclick="switchDevice('duo')">
+                    <span>📖</span> iPhone Duo
+                </button>
+            </div>
+
+            <div class="gallery-wrapper">
+                <!-- Panel 1: iPhone 18 Pro -->
+                <div class="gallery-panel active" id="panel-iphone" role="tabpanel" aria-labelledby="tab-iphone">
+                    <button class="gallery-nav-btn gallery-nav-prev" onclick="scrollGallery('panel-iphone', -1)" aria-label="Previous screenshot">‹</button>
+                    <div class="gallery-track">
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/iphone/home.webp" type="image/webp">
+                                <img src="screenshots/iphone/home.png" alt="Scaena All-in-One Dashboard on iPhone" loading="lazy" width="285" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">All-in-One Dashboard</div>
+                                <div class="item-desc">Up Next, stats, and recently watched in one view</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/iphone/watchlist.webp" type="image/webp">
+                                <img src="screenshots/iphone/watchlist.png" alt="Unified Watchlist Tracking on iPhone" loading="lazy" width="285" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Watchlist Tracking</div>
+                                <div class="item-desc">Filter movies, TV series, anime, and progress</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/iphone/show_detail.webp" type="image/webp">
+                                <img src="screenshots/iphone/show_detail.png" alt="Rich TV Series Details on iPhone" loading="lazy" width="285" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Rich TV Details</div>
+                                <div class="item-desc">Episode guides, streaming links, and spoilers hidden</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/iphone/movie_detail.webp" type="image/webp">
+                                <img src="screenshots/iphone/movie_detail.png" alt="Deep Movie Details on iPhone" loading="lazy" width="285" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Deep Movie Details</div>
+                                <div class="item-desc">Cast, ratings, trailers, and rewatch tracking</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/iphone/calendar.webp" type="image/webp">
+                                <img src="screenshots/iphone/calendar.png" alt="Airing Schedule Calendar on iPhone" loading="lazy" width="285" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Release Calendar</div>
+                                <div class="item-desc">Never miss an episode air date or theatrical debut</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/iphone/custom_lists.webp" type="image/webp">
+                                <img src="screenshots/iphone/custom_lists.png" alt="Custom Lists & Smart Filters on iPhone" loading="lazy" width="285" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Custom Lists</div>
+                                <div class="item-desc">Organize collections with smart rules and iCloud sync</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/iphone/themes.webp" type="image/webp">
+                                <img src="screenshots/iphone/themes.png" alt="Pro Themes on iPhone" loading="lazy" width="285" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Pro Themes</div>
+                                <div class="item-desc">Arctic, Charcoal, Dark Blue, Plum, and custom accents</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/iphone/widgets.webp" type="image/webp">
+                                <img src="screenshots/iphone/widgets.png" alt="Interactive Widgets on iPhone" loading="lazy" width="285" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Glanceable Widgets</div>
+                                <div class="item-desc">Home Screen and Lock Screen episode schedules</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="gallery-nav-btn gallery-nav-next" onclick="scrollGallery('panel-iphone', 1)" aria-label="Next screenshot">›</button>
+                </div>
+
+                <!-- Panel 2: iPad Pro 13" -->
+                <div class="gallery-panel" id="panel-ipad" role="tabpanel" aria-labelledby="tab-ipad">
+                    <button class="gallery-nav-btn gallery-nav-prev" onclick="scrollGallery('panel-ipad', -1)" aria-label="Previous screenshot">‹</button>
+                    <div class="gallery-track">
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/ipad/home.webp" type="image/webp">
+                                <img src="screenshots/ipad/home.png" alt="Scaena Expansive Dashboard on iPad Pro" loading="lazy" width="465" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Expansive Dashboard</div>
+                                <div class="item-desc">Tailored multi-column hub with sidebar navigation</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/ipad/watchlist.webp" type="image/webp">
+                                <img src="screenshots/ipad/watchlist.png" alt="Grid Watchlist on iPad Pro" loading="lazy" width="465" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Watchlist Grid</div>
+                                <div class="item-desc">Rich poster layout optimized for large screens</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/ipad/show_detail.webp" type="image/webp">
+                                <img src="screenshots/ipad/show_detail.png" alt="Comprehensive Show Details on iPad Pro" loading="lazy" width="465" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Full Show Details</div>
+                                <div class="item-desc">Full season breakdown, guest cast, and episode art</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/ipad/movie_detail.webp" type="image/webp">
+                                <img src="screenshots/ipad/movie_detail.png" alt="Deep Movie Details on iPad Pro" loading="lazy" width="465" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Cinematic Movie Views</div>
+                                <div class="item-desc">High-res backdrops, release stats, and ratings</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/ipad/calendar.webp" type="image/webp">
+                                <img src="screenshots/ipad/calendar.png" alt="Airing Calendar on iPad Pro" loading="lazy" width="465" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Full Airing Calendar</div>
+                                <div class="item-desc">Monthly release grid with instant episode tracking</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/ipad/custom_lists.webp" type="image/webp">
+                                <img src="screenshots/ipad/custom_lists.png" alt="Custom Lists on iPad Pro" loading="lazy" width="465" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Custom Lists &amp; Filters</div>
+                                <div class="item-desc">Curate and manage media libraries with ease</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/ipad/themes.webp" type="image/webp">
+                                <img src="screenshots/ipad/themes.png" alt="iPad Pro Themes" loading="lazy" width="465" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Pro Color Themes</div>
+                                <div class="item-desc">Full system accent personalization across iPadOS</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="gallery-nav-btn gallery-nav-next" onclick="scrollGallery('panel-ipad', 1)" aria-label="Next screenshot">›</button>
+                </div>
+
+                <!-- Panel 3: iPhone Duo -->
+                <div class="gallery-panel" id="panel-duo" role="tabpanel" aria-labelledby="tab-duo">
+                    <button class="gallery-nav-btn gallery-nav-prev" onclick="scrollGallery('panel-duo', -1)" aria-label="Previous screenshot">‹</button>
+                    <div class="gallery-track">
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/duo/inner_home.webp" type="image/webp">
+                                <img src="screenshots/duo/inner_home.png" alt="Scaena Dual-Screen Dashboard on iPhone Duo" loading="lazy" width="739" height="520">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Dual-Screen Dashboard</div>
+                                <div class="item-desc">Expansive unfolded canvas with simultaneous feeds</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/duo/inner_watchlist.webp" type="image/webp">
+                                <img src="screenshots/duo/inner_watchlist.png" alt="Two-Pane Watchlist on iPhone Duo" loading="lazy" width="739" height="520">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Expanded Two-Pane View</div>
+                                <div class="item-desc">Browse collections across both flexible displays</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/duo/inner_show_detail.webp" type="image/webp">
+                                <img src="screenshots/duo/inner_show_detail.png" alt="Side-by-Side Episode Guides on iPhone Duo" loading="lazy" width="739" height="520">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Side-by-Side Metadata</div>
+                                <div class="item-desc">Seasons on left, episode descriptions on right</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/duo/inner_calendar.webp" type="image/webp">
+                                <img src="screenshots/duo/inner_calendar.png" alt="Two-Page Monthly Calendar on iPhone Duo" loading="lazy" width="739" height="520">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Unfolded Airing Calendar</div>
+                                <div class="item-desc">Two-page book layout for tracking future releases</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/duo/outer_home.webp" type="image/webp">
+                                <img src="screenshots/duo/outer_home.png" alt="Quick Glance Outer Display on iPhone Duo" loading="lazy" width="426" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Outer Cover Display</div>
+                                <div class="item-desc">Quick single-handed access when folded on the go</div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <picture>
+                                <source srcset="screenshots/duo/outer_watchlist.webp" type="image/webp">
+                                <img src="screenshots/duo/outer_watchlist.png" alt="Compact Watchlist on iPhone Duo Outer Display" loading="lazy" width="426" height="620">
+                            </picture>
+                            <div class="item-caption">
+                                <div class="item-title">Compact Watchlist</div>
+                                <div class="item-desc">Rapid episode check-ins on the exterior screen</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="gallery-nav-btn gallery-nav-next" onclick="scrollGallery('panel-duo', 1)" aria-label="Next screenshot">›</button>
+                </div>
+            </div>
         </section>
 
         <!-- Features Grid -->
@@ -1248,6 +1716,29 @@
         // Listen for history and initial load events
         window.addEventListener('hashchange', handleRouting);
         window.addEventListener('DOMContentLoaded', handleRouting);
+
+        // Device Showcase Switcher
+        function switchDevice(deviceId) {
+            document.querySelectorAll('.device-tab').forEach(tab => {
+                const isActive = tab.id === 'tab-' + deviceId;
+                tab.classList.toggle('active', isActive);
+                tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+            document.querySelectorAll('.gallery-panel').forEach(panel => {
+                const isActive = panel.id === 'panel-' + deviceId;
+                panel.classList.toggle('active', isActive);
+            });
+        }
+
+        // Horizontal Gallery Smooth Scroll
+        function scrollGallery(panelId, direction) {
+            const panel = document.getElementById(panelId);
+            if (!panel) return;
+            const track = panel.querySelector('.gallery-track');
+            if (!track) return;
+            const scrollAmount = track.clientWidth * 0.75;
+            track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
