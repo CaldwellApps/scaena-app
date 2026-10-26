@@ -113,12 +113,19 @@
             padding: 0;
         }
 
-        body {
+        html, body {
             font-family: 'Inter', sans-serif;
             background-color: var(--primary-dark);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        h1, h2, h3, h4, p {
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
 
         h1, h2, h3, h4 {
@@ -225,6 +232,7 @@
             padding: 100px 0 80px;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
 
         .hero::before {
@@ -949,8 +957,9 @@
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 32px;
+            gap: 16px 28px;
             margin-bottom: 24px;
+            flex-wrap: wrap;
         }
 
         .footer-link {
@@ -998,8 +1007,8 @@
 
         @media (max-width: 480px) {
             .container {
-                padding-left: 12px;
-                padding-right: 12px;
+                padding-left: 14px;
+                padding-right: 14px;
             }
             .hero {
                 padding-top: 60px;
@@ -1008,6 +1017,37 @@
             .features {
                 padding-top: 50px;
                 padding-bottom: 50px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .feature-card {
+                padding: 24px 20px;
+            }
+            .feature-row {
+                padding: 24px 16px;
+                border-radius: 20px;
+                gap: 28px;
+            }
+            .feature-text h3 {
+                font-size: 24px;
+            }
+            .device-switcher-wrap {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                width: 100%;
+            }
+            .device-switcher {
+                max-width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .device-pill {
+                padding: 5px 12px;
+                font-size: 12px;
+                white-space: nowrap;
             }
             .nav-container {
                 height: 60px;
@@ -1028,6 +1068,9 @@
             .nav-link {
                 font-size: 13px;
                 padding: 4px 0;
+            }
+            .footer-links {
+                gap: 12px 18px;
             }
         }
     </style>
