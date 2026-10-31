@@ -1030,14 +1030,10 @@
 
     function openInScaenaOrAppStore(deepLinkUrl) {
       const appStoreUrl = 'https://apps.apple.com/app/id6787125515';
-      const start = Date.now();
+      showToast("Opening in Scaena... Don't have the app?", "Get on App Store", () => {
+        window.location.href = appStoreUrl;
+      });
       window.location.href = deepLinkUrl;
-      setTimeout(() => {
-        if (document.hidden || document.webkitHidden) return;
-        if (Date.now() - start < 2500) {
-          window.location.href = appStoreUrl;
-        }
-      }, 1200);
     }
 
     function formatDate(dateStr) {
