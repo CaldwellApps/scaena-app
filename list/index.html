@@ -622,44 +622,6 @@
     }
     .action-btn:hover { opacity: 0.92; transform: scale(1.01); }
 
-    /* Toast Notification */
-    .toast-wrap {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(26, 34, 31, 0.95);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 12px 18px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      z-index: 100;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      font-size: 0.9rem;
-      max-width: 90vw;
-    }
-    .toast-action {
-      color: var(--accent);
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .toast-action:hover { text-decoration: underline; }
-    .toast-close {
-      background: transparent;
-      border: none;
-      color: var(--text-secondary);
-      font-size: 1.2rem;
-      cursor: pointer;
-      line-height: 1;
-      padding: 0 4px;
-    }
-
     /* Promo / Empty State */
     .promo-wrap {
       max-width: 600px;
@@ -896,13 +858,6 @@
     </div>
   </div>
 
-  <!-- Toast Notification -->
-  <div id="toastNotification" class="toast-wrap" style="display: none;">
-    <span id="toastMessage"></span>
-    <a href="#" id="toastAction" class="toast-action" target="_blank" rel="noopener"></a>
-    <button id="toastClose" class="toast-close" type="button" aria-label="Close notification">&times;</button>
-  </div>
-
   <!-- Footer with Simkl Attribution -->
   <footer class="site-footer">
     <div>Metadata & artwork powered by <a href="https://simkl.com" target="_blank" rel="noopener">Simkl</a>.</div>
@@ -964,44 +919,10 @@
     const backdrop = document.getElementById('modalBackdrop');
     const modalClose = document.getElementById('modalClose');
 
-    // --- Platform Detection & Toast Notification ---
+    // --- Platform Detection ---
     function isApplePlatform() {
       return /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent) ||
              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    }
-
-    let toastTimeout = null;
-    function showToast(message, actionText, actionCallback) {
-      const toast = document.getElementById('toastNotification');
-      const msgEl = document.getElementById('toastMessage');
-      const actEl = document.getElementById('toastAction');
-      const closeBtn = document.getElementById('toastClose');
-
-      if (!toast || !msgEl) return;
-
-      msgEl.textContent = message;
-
-      if (actionText && actionCallback) {
-        actEl.textContent = actionText;
-        actEl.style.display = 'inline';
-        actEl.onclick = function(e) {
-          e.preventDefault();
-          actionCallback();
-        };
-      } else {
-        actEl.style.display = 'none';
-      }
-
-      closeBtn.onclick = function() {
-        toast.style.display = 'none';
-      };
-
-      toast.style.display = 'flex';
-
-      if (toastTimeout) clearTimeout(toastTimeout);
-      toastTimeout = setTimeout(() => {
-        toast.style.display = 'none';
-      }, 6000);
     }
 
     function handleSaveToScaena() {
@@ -1013,14 +934,12 @@
       const rawData = cleanMatch ? cleanMatch[0] : match[1];
 
       if (!isApplePlatform()) {
-        showToast("Scaena is available exclusively on the App Store.", "View on App Store", () => {
-          window.open('https://apps.apple.com/app/id6787125515', '_blank', 'noopener');
-        });
+        window.open('https://apps.apple.com/app/id6787125515', '_blank', 'noopener');
         return;
       }
 
       const deepLink = `scaena://import-list?data=${encodeURIComponent(rawData)}`;
-      openInScaenaOrAppStore(deepLink);
+      window.location.href = deepLink;
     }
 
     const saveBtn = document.getElementById('saveToScaenaBtn');
@@ -1029,10 +948,6 @@
     }
 
     function openInScaenaOrAppStore(deepLinkUrl) {
-      const appStoreUrl = 'https://apps.apple.com/app/id6787125515';
-      showToast("Opening in Scaena... Don't have the app?", "Get on App Store", () => {
-        window.location.href = appStoreUrl;
-      });
       window.location.href = deepLinkUrl;
     }
 
