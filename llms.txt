@@ -1,16 +1,16 @@
-# Scaena
+# Scaena — TV & Movie Tracker with Simkl Sync
 
-> Scaena is a modern, privacy-focused media tracker for TV shows, movies, and anime on iOS and iPadOS.
+> Scaena is a modern, privacy-focused media tracker and native Simkl companion client for TV shows, movies, and anime on iOS and iPadOS.
 
-Scaena (pronounced "SEE-nuh") combines native Apple design aesthetics with Simkl synchronization, interactive spoiler prevention, airing schedules, and widgets.
+Scaena (pronounced "SEE-nuh") combines native Apple design aesthetics with Simkl synchronization, native spoiler protection, custom notifications, airing schedules, and widgets.
 
 ## Core Features
 - **Simkl 2-Way Synchronization (AUTH V2)**: Seamlessly syncs watchlists, ratings, and watch history using modern OAuth with PKCE.
 - **Rewatch Tracking**: Log and track isolated rewatch progress across multiple sessions per title without overwriting canonical watch history.
-- **Spoiler Prevention Controls**: Native spoiler shields blur episode descriptions and replace episode-specific thumbnails with general season art until watched.
-- **Release & Airing Calendars**: Real-time schedules customized to the user's local timezone, with per-title custom notification scheduling.
+- **Native Spoiler Protection**: Hides episode descriptions behind spoiler alerts and replaces episode-specific thumbnails with season cover art until marked as watched.
+- **Release & Airing Calendars**: Real-time schedules customized to the user's local timezone, with custom notifications.
 - **Custom Lists**: Create, curate, and organize personal media lists synced via Apple iCloud, and browse Simkl custom lists (read-only, beta).
-- **List Snapshots & Web Sharing**: Export and share watchlists, standard categories, and custom lists as interactive web pages. Automatically saves immutable snapshots under Settings → List Snapshots with CloudKit-backed instant revocation.
+- **List Snapshots & Web Sharing**: Export and share watchlists, default lists, and custom lists as interactive web pages. Automatically saves immutable snapshots under Settings → List Snapshots with CloudKit-backed instant revocation.
 - **Home Screen Widgets**: Small, medium, and large glassmorphic widgets for Watchlist progress, Calendar schedules, and Custom Lists.
 - **Localization**: Localized into 22 global languages.
 - **Privacy Architecture**: Operates on a local Core Data container and private Apple iCloud Key-Value store. No third-party tracking, analytics, or remote user data collection.
@@ -21,8 +21,8 @@ Scaena (pronounced "SEE-nuh") combines native Apple design aesthetics with Simkl
 - **macOS Note**: Not officially supported or optimized for macOS.
 
 ## Pricing Tiers
-- **Free**: Core media tracking, up to 20 watchlist items, global recommendations, fixed-time release alerts, full spoiler protection, watchlist and default list snapshot sharing with CloudKit revocation.
-- **Scaena Pro**: Unlimited watchlist items, 2-way Simkl synchronization, Simkl rewatch tracking, Home Screen widgets, HD episode backdrops, custom themes & app icons, custom per-title notification schedules, custom lists iCloud sync & custom list snapshot sharing.
+- **Free**: Core media tracking, up to 20 watchlist items, global recommendations, fixed-time release alerts, native spoiler protection, watchlist and default list snapshot sharing with CloudKit revocation.
+- **Scaena Pro**: Unlimited watchlist items, 2-way Simkl synchronization, Simkl rewatch tracking, Home Screen widgets, HD episode backdrops, custom themes & app icons, custom notifications, custom lists iCloud sync & custom list snapshot sharing.
   - Subscriptions: $1.99/month, $12.99/year (7-day free trial).
   - Lifetime: $34.99 one-time purchase.
   - Supports Family Sharing.

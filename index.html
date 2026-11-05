@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scaena — Track. Sync. Never miss a release.</title>
-    <meta name="description" content="Scaena is a premium, privacy-focused media tracker for TV shows, movies, and anime on iOS and iPadOS with Simkl sync, spoiler shields, and widgets.">
+    <title>Scaena — TV & Movie Tracker with Simkl Sync for iOS & iPadOS</title>
+    <meta name="description" content="Scaena is the modern, privacy-first TV, movie, and anime tracker with 2-way Simkl sync for iOS and iPadOS. Features rewatch tracking, release calendars, custom notifications, list web sharing, widgets, and spoiler protection.">
+    <meta name="keywords" content="Simkl, Simkl iOS, Simkl sync, Simkl client, TV tracker, movie tracker, anime tracker, episode tracker, watchlist tracker, rewatch tracker, custom notifications, spoiler protection, iOS media tracker">
     <link rel="canonical" href="https://caldwellappsco.com/">
 
     <!-- Open Graph / Bluesky / Discord / iMessage -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Scaena — Track. Sync. Never miss a release.">
-    <meta property="og:description" content="A modern, privacy-focused media tracker for TV shows, movies, and anime on iOS and iPadOS with Simkl sync, spoiler shields, and widgets.">
+    <meta property="og:title" content="Scaena — TV & Movie Tracker with Simkl Sync">
+    <meta property="og:description" content="Scaena is the modern, privacy-first TV, movie, and anime tracker with 2-way Simkl sync for iOS and iPadOS. Features rewatch tracking, release calendars, custom notifications, list web sharing, widgets, and spoiler protection.">
     <meta property="og:url" content="https://caldwellappsco.com/">
     <meta property="og:image" content="https://caldwellappsco.com/logo.png">
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Scaena — TV & Movie Tracker">
-    <meta name="twitter:description" content="Track TV shows, movies, and anime with Simkl sync, spoiler shields, and widgets.">
+    <meta name="twitter:title" content="Scaena — TV & Movie Tracker with Simkl Sync">
+    <meta name="twitter:description" content="Scaena is the modern, privacy-first TV, movie, and anime tracker with 2-way Simkl sync for iOS and iPadOS. Features rewatch tracking, release calendars, custom notifications, list web sharing, widgets, and spoiler protection.">
     <meta name="twitter:image" content="https://caldwellappsco.com/logo.png">
 
     <!-- Favicon & Apple Touch Icon -->
@@ -35,12 +36,25 @@
       "name": "Scaena",
       "operatingSystem": "iOS 18.0+, iPadOS 18.0+",
       "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "TV & Movie Tracker, Simkl Client",
       "offers": {
         "@type": "Offer",
         "price": "0.00",
         "priceCurrency": "USD"
       },
-      "description": "Scaena is a premium, privacy-focused media tracker for TV shows and movies with Simkl synchronization, Explore & Trending discovery, interactive List Snapshots web sharing, spoiler protection, and high-res artwork integrations.",
+      "description": "Scaena is the modern, privacy-first TV, movie, and anime tracker with 2-way Simkl sync for iOS and iPadOS. Features rewatch tracking, release calendars, custom notifications, list web sharing, widgets, and spoiler protection.",
+      "keywords": "Simkl, Simkl iOS, Simkl sync, Simkl client, TV tracker, movie tracker, anime tracker, episode tracker, watchlist tracker, rewatch tracker, custom notifications, spoiler protection",
+      "featureList": [
+        "Simkl 2-Way Synchronization (AUTH V2)",
+        "Simkl Multi-Session Rewatch Tracking",
+        "Interactive List Snapshots & Web Sharing",
+        "Release & Airing Calendars",
+        "Custom Notifications",
+        "Home Screen Widgets",
+        "Curated Custom Lists",
+        "Native Spoiler Protection",
+        "Privacy-First Architecture (Zero Analytics, Private iCloud)"
+      ],
       "author": {
         "@type": "Organization",
         "name": "Caldwell Apps LLC"
@@ -57,7 +71,15 @@
           "name": "What is Scaena?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Scaena is a premium, privacy-focused media tracker for TV shows and movies with Simkl synchronization, spoiler protection, and high-res artwork integrations."
+            "text": "Scaena is a premium, privacy-focused media tracker for TV shows, movies, and anime with 2-way Simkl sync, native spoiler protection, custom notifications, and home screen widgets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Simkl features does Scaena support on iOS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Scaena integrates directly with Simkl's API to support 2-way synchronization for watch history and ratings, modern AUTH V2 (OAuth with PKCE), multi-session rewatch tracking, Simkl custom lists (Beta), live trending feeds, and personalized recommendations."
           }
         },
         {
@@ -73,7 +95,7 @@
           "name": "Does Scaena track my personal data?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Scaena stores all watchlist data and settings locally or securely in your private Apple iCloud container. There are no third-party servers collecting your data."
+            "text": "No. Scaena stores all watchlist data and settings locally on your device or securely in your private Apple iCloud container. There are no third-party tracking databases or remote user servers collecting your data."
           }
         },
         {
@@ -81,7 +103,7 @@
           "name": "How does Scaena avoid TV show episode spoilers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Scaena features a native 'Hide Episode Spoilers' toggle. When enabled, episode descriptions are hidden behind a spoiler alert, and specific episode thumbnails are replaced with general season posters."
+            "text": "Scaena features native spoiler protection controls. When enabled, episode descriptions are hidden behind a spoiler alert, and specific episode thumbnails are replaced with general season posters until you mark the episode as watched."
           }
         },
         {
@@ -89,7 +111,7 @@
           "name": "How do I sync my watchlist with Simkl?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Scaena has a built-in background SyncManager that handles updates off the main thread. Simply authorize your Simkl account to sync watchlists, ratings, and watch history."
+            "text": "Simply open Settings in Scaena and connect your Simkl account. Scaena automatically synchronizes your watch history, watchlist progress, and ratings in the background, keeping your library up to date across all your devices."
           }
         }
       ]
@@ -1114,7 +1136,7 @@
                 Now Integrated with Simkl Sync
             </div>
             <h1>Track. Sync.<br>Never miss a release.</h1>
-            <p>Scaena (pronounced SEE-nuh) is a modern Swift app for iOS. Track your favorite TV Shows, Movies, and Anime and explore new ones.</p>
+            <p>Scaena (pronounced SEE-nuh) is a modern, privacy-first tracker for TV shows, movies, and anime on iPhone and iPad. Track what you watch, get custom notifications, and seamlessly sync with Simkl.</p>
             <a href="https://apps.apple.com/us/app/scaena-tv-movie-tracker/id6787125515" target="_blank" rel="noopener noreferrer" class="app-store-badge">
                 <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
             </a>
@@ -1365,7 +1387,7 @@
                             </li>
                             <li>
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
-                                <span>Automatic sync across your iPhone, iPad, and Mac</span>
+                                <span>Automatic sync across your iPhone and iPad</span>
                             </li>
                         </ul>
                         <div class="device-switcher-wrap">
@@ -1523,7 +1545,7 @@
                         <!-- TV / Episode icon -->
                         <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4" /><path d="M12 6v12M6 12h12"/></svg>
                     </div>
-                    <h3>Spoiler Prevention Controls</h3>
+                    <h3>Native Spoiler Protection</h3>
                     <p>Hide episode synopses behind interactive spoiler cards and swap specific thumbnails with season covers until you mark them watched.</p>
                 </div>
                 
@@ -1611,7 +1633,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
                     <h3>Serverless iCloud Privacy</h3>
-                    <p>Your data stays yours. Scaena saves data in local Core Data and syncs across Apple devices using private iCloud. No custom tracking servers.</p>
+                    <p>Your data stays yours. Scaena stores your library locally on your device and syncs securely across your Apple devices via private iCloud. No tracking, ads, or third-party servers.</p>
                 </div>
             </div>
         </section>
@@ -1671,7 +1693,7 @@
                                 <tr style="border-bottom: 1px solid rgba(43,54,68,0.5);">
                                     <td style="padding: 13px 16px; font-weight: 500;">Release &amp; Airing Notifications</td>
                                     <td style="padding: 13px 16px; text-align: center; color: var(--text-muted);"><span style="background: rgba(139,155,180,0.12); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Fixed Time or Air Date &amp; Time</span></td>
-                                    <td style="padding: 13px 16px; text-align: center;"><span style="background: rgba(0,255,136,0.1); color: var(--accent-mint); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Custom Schedule Per-Title</span></td>
+                                    <td style="padding: 13px 16px; text-align: center;"><span style="background: rgba(0,255,136,0.1); color: var(--accent-mint); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Custom Notifications</span></td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid rgba(43,54,68,0.5);">
                                     <td style="padding: 13px 16px; font-weight: 500;">Home Screen Widgets</td>
@@ -1790,8 +1812,21 @@
                 </div>
                 
                 <div class="doc-section">
+                    <h2>Which Simkl features does Scaena support on iOS?</h2>
+                    <p>Scaena integrates directly with Simkl's API to support the following platform features on iPhone and iPad:</p>
+                    <ul>
+                        <li><strong>2-Way Synchronization:</strong> Background syncing for watch history, episode progress, ratings, and status lists (Watching, Plan to Watch, Completed, On Hold, Dropped).</li>
+                        <li><strong>Modern AUTH V2:</strong> Secure authentication using Simkl's modern OAuth with PKCE and automatic token refresh.</li>
+                        <li><strong>Multi-Session Rewatch Tracking:</strong> Full support for Simkl's rewatch engine, allowing you to log multiple rewatch cycles per title without overwriting original watch dates.</li>
+                        <li><strong>Simkl Custom Lists (Beta):</strong> Browse and view your curated Simkl custom lists directly within Scaena.</li>
+                        <li><strong>Explore &amp; Trending Feeds:</strong> Live trending TV shows and movies sourced directly from Simkl, filterable by Today, This Week, or This Month.</li>
+                        <li><strong>Personalized Recommendations:</strong> Access personalized title recommendations tailored to your Simkl watch history (for Simkl Pro/VIP members).</li>
+                    </ul>
+                </div>
+
+                <div class="doc-section">
                     <h2>How do I sync my watchlist with Simkl?</h2>
-                    <p>Simply navigate to settings inside the app and authorize your Simkl account. Scaena's background SyncManager executes all API calls and database commits asynchronously on dedicated threads, ensuring your watchlists, ratings, and history remain perfectly in sync without ever causing frame rate drops.</p>
+                    <p>Simply open Settings in Scaena and connect your Simkl account. Scaena automatically synchronizes your watch history, watchlist progress, and ratings in the background, keeping your library up to date across all your devices.</p>
                 </div>
 
                 <div class="doc-section">
@@ -1821,7 +1856,7 @@
                 
                 <div class="doc-section">
                     <h2>What metadata services does Scaena use?</h2>
-                    <p>Scaena fetches show schedules, user lists, and poster art from Simkl, and high-resolution episode backdrops from TheTVDB (TVDB). All metadata lookups are handled automatically using secure, integrated developer access keys.</p>
+                    <p>Scaena retrieves show schedules, user lists, and artwork from Simkl, along with high-resolution episode backdrops from TheTVDB (TVDB). All metadata is loaded automatically in the background.</p>
                 </div>
             </div>
         </div>

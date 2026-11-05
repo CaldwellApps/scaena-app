@@ -45,7 +45,7 @@ Never miss an episode release again. Scaena features an interactive calendar det
 ### 🔔 Flexible Push Notifications (Free & Pro)
 Never miss an episode release again:
 - **Free**: Choose between **Fixed Time** (set fixed daily notification times) or **Exact Air Date & Time** for TV Shows, Movies, and Anime categories in central settings.
-- **Pro**: Set **Custom Per-Title Notification Schedules** directly on any show, movie, or anime sheet with custom day offsets (-7 to +3 days) and specific alert times overriding central defaults.
+- **Pro**: Set **Custom Notifications** directly on any show, movie, or anime sheet with custom day offsets (-7 to +3 days) and specific alert times overriding central defaults.
 
 ### 🛡️ Native Spoiler Protection
 Protect yourself from plot details before you watch. Included for all users on both Free and Pro tiers. When enabled, Scaena:
@@ -76,7 +76,7 @@ Unlock the full power of Scaena with **Scaena Pro**:
 
 1. **Scaena Custom Lists**: Create, curate, and organize personal custom lists with iCloud backup and sync, plus custom list snapshot web sharing.
 2. **Unlimited Watchlist Items**: Expand beyond the 20-item free tier limit to track your entire media library without restrictions.
-3. **Per-Title Custom Notification Schedules**: Set per-title alert times and custom day offsets (-7 to +3 days) for TV shows, movies, and anime.
+3. **Custom Notifications**: Set per-title alert times and custom day offsets (-7 to +3 days) for TV shows, movies, and anime.
 4. **Automatic Simkl Synchronization**: Instant, continuous synchronization of watch history, ratings, and rewatch progress across all devices.
 5. **Simkl Rewatch Tracking**: Track multiple isolated rewatch sessions per title without losing or overwriting your original watch history.
 6. **Home Screen Widgets**: Access your Watchlist, Calendar, and Custom Lists directly from your iOS and iPadOS Home Screen.
