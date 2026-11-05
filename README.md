@@ -20,6 +20,14 @@ Organize your cinema and television experience your way with Custom Lists:
 - **Scaena Custom Lists (Pro)**: Create, curate, and reorder personal custom lists for any theme, marathon, or mood with seamless iCloud synchronization across your Apple devices.
 - **Simkl Custom Lists (Beta)**: View and browse your Simkl custom lists directly within Scaena (currently read-only; requires an active Simkl Pro or VIP subscription).
 
+### 📸 List Snapshots & Web Sharing (Free & Pro)
+Share your curated cinema, television, and anime collections with anyone as standalone, responsive web pages:
+- **One-Tap Web Links**: Export full watchlists (Aired/Released, Upcoming, or All), standard category lists, or custom lists to interactive web links (`caldwellappsco.com/list/...`).
+- **Interactive Web Viewer & App Import**: Friends and followers can view your lists in any mobile or desktop browser, search and filter items, or tap **Open in Scaena** to import titles directly into their own watchlist or custom lists.
+- **Immutable Snapshots**: Whenever a list is shared, Scaena records an immutable snapshot saved under **Settings → List Snapshots**, preserving the list title, category, item counts, artwork previews, and full payload.
+- **CloudKit Instant Revocation**: Revoke any published link with a single tap. Scaena flags the snapshot in Apple's CloudKit Public Database, instantly blocking web viewers from accessing the content. You can un-revoke at any time to restore access.
+- **Recently Deleted Retention**: Soft-delete snapshots with a 30-day trash retention window before permanent removal.
+
 ### 📺 Smart Watchlist Tracking
 Organize all your television series, movies, and anime in unified lists. Keep track of what season and episode you're currently on, rate your favorite media, and manage what to watch next.
 
@@ -66,7 +74,7 @@ Scaena is fully localized into 22 global languages: English, Spanish, Chinese (S
 
 Unlock the full power of Scaena with **Scaena Pro**:
 
-1. **Scaena Custom Lists**: Create, curate, and organize personal custom lists with iCloud backup and sync.
+1. **Scaena Custom Lists**: Create, curate, and organize personal custom lists with iCloud backup and sync, plus custom list snapshot web sharing.
 2. **Unlimited Watchlist Items**: Expand beyond the 20-item free tier limit to track your entire media library without restrictions.
 3. **Per-Title Custom Notification Schedules**: Set per-title alert times and custom day offsets (-7 to +3 days) for TV shows, movies, and anime.
 4. **Automatic Simkl Synchronization**: Instant, continuous synchronization of watch history, ratings, and rewatch progress across all devices.

@@ -40,7 +40,7 @@
         "price": "0.00",
         "priceCurrency": "USD"
       },
-      "description": "Scaena is a premium, privacy-focused media tracker for TV shows and movies with Simkl synchronization, Explore & Trending discovery, spoiler protection, and high-res artwork integrations.",
+      "description": "Scaena is a premium, privacy-focused media tracker for TV shows and movies with Simkl synchronization, Explore & Trending discovery, interactive List Snapshots web sharing, spoiler protection, and high-res artwork integrations.",
       "author": {
         "@type": "Organization",
         "name": "Caldwell Apps LLC"
@@ -58,6 +58,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Scaena is a premium, privacy-focused media tracker for TV shows and movies with Simkl synchronization, spoiler protection, and high-res artwork integrations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I share a list, and what are List Snapshots?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can share any watchlist, status category, or custom list as an interactive web link directly from Scaena. Whenever you share, Scaena creates an immutable snapshot saved under Settings → List Snapshots with title, counts, and artwork previews. You can re-copy links anytime or instantly revoke web access using Apple CloudKit."
           }
         },
         {
@@ -1568,6 +1576,19 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">
+                        <!-- Share / Snapshot icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                            <polyline points="16 6 12 2 8 6"/>
+                            <line x1="12" y1="2" x2="12" y2="15"/>
+                        </svg>
+                    </div>
+                    <h3>List Snapshots &amp; Web Sharing</h3>
+                    <p>Share any watchlist, category, or custom list as an interactive web link with a single tap. Scaena automatically preserves an immutable snapshot locally and in iCloud, allowing you to re-share, inspect, or instantly revoke web access via Apple CloudKit anytime.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <!-- Grid / widget icon -->
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
                     </div>
@@ -1631,6 +1652,11 @@
                                     <td style="padding: 13px 16px; font-weight: 500;">Simkl Custom Lists (Beta)</td>
                                     <td style="padding: 13px 16px; text-align: center; color: var(--text-muted); opacity: 0.4; font-size: 18px;">✕</td>
                                     <td style="padding: 13px 16px; text-align: center;"><span style="background: rgba(0,255,136,0.1); color: var(--accent-mint); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Read-Only (Simkl Pro/VIP)</span></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(43,54,68,0.5);">
+                                    <td style="padding: 13px 16px; font-weight: 500;">List Snapshots &amp; Web Sharing</td>
+                                    <td style="padding: 13px 16px; text-align: center;"><span style="background: rgba(0,255,136,0.1); color: var(--accent-mint); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Watchlists &amp; Standard</span></td>
+                                    <td style="padding: 13px 16px; text-align: center;"><span style="background: rgba(0,255,136,0.1); color: var(--accent-mint); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Full + Custom Lists</span></td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid rgba(43,54,68,0.5);">
                                     <td style="padding: 13px 16px; font-weight: 500;">Simkl Sync</td>
@@ -1750,6 +1776,17 @@
                 <div class="doc-section">
                     <h2>How does Scaena avoid TV show episode spoilers?</h2>
                     <p>Scaena features a native "Hide Episode Spoilers" toggle. When enabled, episode descriptions are hidden behind a spoiler alert, and specific episode thumbnails are replaced with general season posters until you mark the episode as watched.</p>
+                </div>
+
+                <div class="doc-section">
+                    <h2>How can I share a list, and what are List Snapshots?</h2>
+                    <p>You can share any watchlist (Full, Aired/Released, or Upcoming), standard status category (Watching, Plan to Watch, Completed, On Hold, Dropped), or personal Custom List directly from Scaena:</p>
+                    <ul>
+                        <li><strong>One-Tap Web Sharing:</strong> Tap the Share button at the top of any watchlist or list view to generate a secure, interactive web link (<code>caldwellappsco.com/list/...</code>). Anyone opening the link can view your list in any browser on desktop or mobile, search and filter items, or tap <strong>Open in Scaena</strong> to import the entire list into their own app.</li>
+                        <li><strong>Immutable List Snapshots:</strong> Whenever you share a list, Scaena saves an immutable snapshot captured at that exact moment in time under <strong>Settings &rarr; List Snapshots</strong>. The snapshot records the title, filter criteria, item count, preview artwork, and full compressed payload.</li>
+                        <li><strong>CloudKit Link Revocation:</strong> You retain complete control over your shared links. If you ever want to unpublish a shared list, simply open the snapshot in Settings and tap <strong>Revoke Share</strong>. Scaena immediately registers the revocation in Apple's CloudKit Public Database, blocking web viewers from viewing the contents. You can un-revoke it at any time to restore access.</li>
+                        <li><strong>Search, Filter &amp; Trash Recovery:</strong> Filter and sort your saved snapshots by category or media type, copy links anytime without re-exporting, and restore accidentally deleted snapshots from <strong>Recently Deleted</strong> within 30 days.</li>
+                    </ul>
                 </div>
                 
                 <div class="doc-section">
