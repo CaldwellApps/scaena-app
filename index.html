@@ -65,7 +65,7 @@
           "name": "How can I share a list, and what are List Snapshots?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can share any watchlist, status category, or custom list as an interactive web link directly from Scaena. Whenever you share, Scaena creates an immutable snapshot saved under Settings → List Snapshots with title, counts, and artwork previews. You can re-copy links anytime or instantly revoke web access using Apple CloudKit."
+            "text": "You can share any watchlist, default list, or custom list (requires Scaena Pro) as an interactive web link directly from Scaena. Whenever you share, Scaena creates an immutable snapshot saved under Settings → List Snapshots with title, counts, and artwork previews. You can re-copy links anytime or instantly revoke web access using Apple CloudKit."
           }
         },
         {
@@ -1655,7 +1655,7 @@
                                 </tr>
                                 <tr style="border-bottom: 1px solid rgba(43,54,68,0.5);">
                                     <td style="padding: 13px 16px; font-weight: 500;">List Snapshots &amp; Web Sharing</td>
-                                    <td style="padding: 13px 16px; text-align: center;"><span style="background: rgba(0,255,136,0.1); color: var(--accent-mint); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Watchlists &amp; Standard</span></td>
+                                    <td style="padding: 13px 16px; text-align: center;"><span style="background: rgba(0,255,136,0.1); color: var(--accent-mint); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Watchlists &amp; Default Lists</span></td>
                                     <td style="padding: 13px 16px; text-align: center;"><span style="background: rgba(0,255,136,0.1); color: var(--accent-mint); border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;">Full + Custom Lists</span></td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid rgba(43,54,68,0.5);">
@@ -1780,9 +1780,9 @@
 
                 <div class="doc-section">
                     <h2>How can I share a list, and what are List Snapshots?</h2>
-                    <p>You can share any watchlist (Full, Aired/Released, or Upcoming), standard status category (Watching, Plan to Watch, Completed, On Hold, Dropped), or personal Custom List directly from Scaena:</p>
+                    <p>You can share any watchlist (Full, Aired/Released, or Upcoming), default status list (Watching, Plan to Watch, Completed, On Hold, Dropped), or personal Custom List (requires Scaena Pro) directly from Scaena:</p>
                     <ul>
-                        <li><strong>One-Tap Web Sharing:</strong> Tap the Share button at the top of any watchlist or list view to generate a secure, interactive web link (<code>caldwellappsco.com/list/...</code>). Anyone opening the link can view your list in any browser on desktop or mobile, search and filter items, or tap <strong>Open in Scaena</strong> to import the entire list into their own app.</li>
+                        <li><strong>One-Tap Web Sharing:</strong> Tap the Share button at the top of any watchlist, default list, or custom list view to generate a secure, interactive web link (<code>caldwellappsco.com/list/...</code>). Anyone opening the link can view your list in any browser on desktop or mobile, search and filter items, or tap <strong>Open in Scaena</strong> to import the entire list into their own app. <em>(Note: Sharing personal Custom Lists requires Scaena Pro, as custom list creation is a Pro feature).</em></li>
                         <li><strong>Immutable List Snapshots:</strong> Whenever you share a list, Scaena saves an immutable snapshot captured at that exact moment in time under <strong>Settings &rarr; List Snapshots</strong>. The snapshot records the title, filter criteria, item count, preview artwork, and full compressed payload.</li>
                         <li><strong>CloudKit Link Revocation:</strong> You retain complete control over your shared links. If you ever want to unpublish a shared list, simply open the snapshot in Settings and tap <strong>Revoke Share</strong>. Scaena immediately registers the revocation in Apple's CloudKit Public Database, blocking web viewers from viewing the contents. You can un-revoke it at any time to restore access.</li>
                         <li><strong>Search, Filter &amp; Trash Recovery:</strong> Filter and sort your saved snapshots by category or media type, copy links anytime without re-exporting, and restore accidentally deleted snapshots from <strong>Recently Deleted</strong> within 30 days.</li>

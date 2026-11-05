@@ -21,7 +21,7 @@ Scaena (pronounced "SEE-nuh") combines native Apple design aesthetics with Simkl
 - **macOS Note**: Not officially supported or optimized for macOS.
 
 ## Pricing Tiers
-- **Free**: Core media tracking, up to 20 watchlist items, global recommendations, fixed-time release alerts, full spoiler protection, watchlist and standard list snapshot sharing with CloudKit revocation.
+- **Free**: Core media tracking, up to 20 watchlist items, global recommendations, fixed-time release alerts, full spoiler protection, watchlist and default list snapshot sharing with CloudKit revocation.
 - **Scaena Pro**: Unlimited watchlist items, 2-way Simkl synchronization, Simkl rewatch tracking, Home Screen widgets, HD episode backdrops, custom themes & app icons, custom per-title notification schedules, custom lists iCloud sync & custom list snapshot sharing.
   - Subscriptions: $1.99/month, $12.99/year (7-day free trial).
   - Lifetime: $34.99 one-time purchase.

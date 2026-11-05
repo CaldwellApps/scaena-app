@@ -22,7 +22,7 @@ Organize your cinema and television experience your way with Custom Lists:
 
 ### 📸 List Snapshots & Web Sharing (Free & Pro)
 Share your curated cinema, television, and anime collections with anyone as standalone, responsive web pages:
-- **One-Tap Web Links**: Export full watchlists (Aired/Released, Upcoming, or All), standard category lists, or custom lists to interactive web links (`caldwellappsco.com/list/...`).
+- **One-Tap Web Links**: Export full watchlists (Aired/Released, Upcoming, or All), default status lists (Watching, Plan to Watch, Completed, etc.), or personal custom lists (requires Scaena Pro) to interactive web links (`caldwellappsco.com/list/...`).
 - **Interactive Web Viewer & App Import**: Friends and followers can view your lists in any mobile or desktop browser, search and filter items, or tap **Open in Scaena** to import titles directly into their own watchlist or custom lists.
 - **Immutable Snapshots**: Whenever a list is shared, Scaena records an immutable snapshot saved under **Settings → List Snapshots**, preserving the list title, category, item counts, artwork previews, and full payload.
 - **CloudKit Instant Revocation**: Revoke any published link with a single tap. Scaena flags the snapshot in Apple's CloudKit Public Database, instantly blocking web viewers from accessing the content. You can un-revoke at any time to restore access.
