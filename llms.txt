@@ -10,6 +10,7 @@ Scaena (pronounced "SEE-nuh") combines native Apple design aesthetics with Simkl
 - **Native Spoiler Protection**: Hides episode descriptions behind spoiler alerts and replaces episode-specific thumbnails with season cover art until marked as watched.
 - **Release & Airing Calendars**: Real-time schedules customized to the user's local timezone, with custom notifications.
 - **Custom Lists**: Create, curate, and organize personal media lists synced via Apple iCloud, and browse Simkl custom lists (read-only, beta).
+- **Watch Stats & Insights**: Track lifetime watch time and TV/Movie/Anime media breakdowns (Free), plus activity heatmaps, watch streaks, rating curves, weekday rhythm, release eras, top networks, backlog audits, and Hall of Fame (Pro).
 - **List Snapshots & Web Sharing**: Export and share watchlists, default lists, and custom lists as interactive web pages. Automatically saves immutable snapshots under Settings → List Snapshots with CloudKit-backed instant revocation.
 - **Home Screen Widgets**: Small, medium, and large glassmorphic widgets for Watchlist progress, Calendar schedules, and Custom Lists.
 - **Localization**: Localized into 22 global languages.
@@ -21,8 +22,8 @@ Scaena (pronounced "SEE-nuh") combines native Apple design aesthetics with Simkl
 - **macOS Note**: Not officially supported or optimized for macOS.
 
 ## Pricing Tiers
-- **Free**: Core media tracking, up to 20 watchlist items, global recommendations, fixed-time release alerts, native spoiler protection, watchlist and default list snapshot sharing with CloudKit revocation.
-- **Scaena Pro**: Unlimited watchlist items, 2-way Simkl synchronization, Simkl rewatch tracking, Home Screen widgets, HD episode backdrops, custom themes & app icons, custom notifications, custom lists iCloud sync & custom list snapshot sharing.
+- **Free**: Core media tracking, up to 20 watchlist items, lifetime watch time & media breakdown, global recommendations, fixed-time release alerts, native spoiler protection, watchlist and default list snapshot sharing with CloudKit revocation.
+- **Scaena Pro**: Unlimited watchlist items, 2-way Simkl synchronization, full Watch Stats & Insights (activity heatmaps, watch streaks, rating charts & Hall of Fame), Simkl rewatch tracking, Home Screen widgets, HD episode backdrops, custom themes & app icons, custom notifications, custom lists iCloud sync & custom list snapshot sharing.
   - Subscriptions: $1.99/month, $12.99/year (7-day free trial).
   - Lifetime: $34.99 one-time purchase.
   - Supports Family Sharing.
