@@ -17,8 +17,8 @@ Track multiple rewatches for your favorite TV shows, movies, and anime without l
 
 ### 📑 Custom Lists (Scaena Pro & Simkl Beta)
 Organize your cinema and television experience your way with Custom Lists:
-- **Scaena Custom Lists (Pro)**: Create, curate, and reorder personal custom lists for any theme, marathon, or mood with seamless iCloud synchronization across your Apple devices.
-- **Simkl Custom Lists (Beta)**: View and browse your Simkl custom lists directly within Scaena (currently read-only; requires an active Simkl Pro or VIP subscription).
+- **Scaena Custom Lists (Pro)**: Create, curate, and reorder personal custom lists for any theme, marathon, or mood with seamless iCloud synchronization across your Apple devices, or convert local lists to Simkl lists.
+- **Simkl Custom Lists (Beta)**: Full 2-way Simkl custom list sync—create, edit, delete, favorite, reorder (`user_position`), add private notes and tags, manage collaborators, and convert local iCloud lists to Simkl (requires an active Simkl Pro or VIP subscription).
 
 ### 📸 List Snapshots & Web Sharing (Free & Pro)
 Share your curated cinema, television, and anime collections with anyone as standalone, responsive web pages:
@@ -29,10 +29,10 @@ Share your curated cinema, television, and anime collections with anyone as stan
 - **Recently Deleted Retention**: Soft-delete snapshots with a 30-day trash retention window before permanent removal.
 
 ### 📺 Smart Watchlist Tracking
-Organize all your television series, movies, and anime in unified lists. Keep track of what season and episode you're currently on, rate your favorite media, and manage what to watch next.
+Organize all your television series, movies, and anime in unified lists. Keep track of what season and episode you're currently on, group by network with collapsible sections and custom Network Order (Most Shows, Most Episodes, Name A–Z), rate your favorite media, and manage what to watch next.
 
 ### 🧭 Explore & Discover Trending
-Find new favorites instantly. Browse live lists of trending TV shows and movies directly from Simkl, filterable by Today, This Week, or This Month.
+Find new favorites instantly. Browse live lists of trending TV shows and movies directly from Simkl, filterable by Today, This Week, This Month, In Theaters, and Certification.
 
 ### 💡 Recommendations & Discovery (Free & Pro)
 Discover what to watch next tailored to your taste:
